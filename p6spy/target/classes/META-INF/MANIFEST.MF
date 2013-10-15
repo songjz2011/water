@@ -1,5 +1,8 @@
 Manifest-Version: 1.0
-Built-By: Administrator
+Implementation-Title: p6spy
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.web.things
 Build-Jdk: 1.6.0_35
+Built-By: Administrator
 Created-By: Maven Integration for Eclipse
 
