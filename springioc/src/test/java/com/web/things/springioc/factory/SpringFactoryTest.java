@@ -77,12 +77,12 @@ public class SpringFactoryTest {
 		System.out.println(bean.getUltimateAnswer());
 	}
 
-//	@Test
-//	public void get_bean_for_private_constructor_is_not_null() {
-//		ExampleBean3 bean = SpringFactory.getBean("exampleBean3", ExampleBean3.class);
-//		assertNotNull(bean);
-//		bean.getAnother().print();
-//	}
+	@Test
+	public void get_bean_for_private_constructor_is_not_null() {
+		ExampleBean3 bean = SpringFactory.getBean("exampleBean3", ExampleBean3.class);
+		assertNotNull(bean);
+		bean.getAnother().print();
+	}
 
 	@Test
 	public void get_bean_for_propertyname_not_equals_setname() {

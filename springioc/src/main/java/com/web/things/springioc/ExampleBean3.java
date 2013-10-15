@@ -11,7 +11,7 @@ public class ExampleBean3 {
 	private ExampleBean3Another another;
 
 	private int id;
-
+	
 	private ExampleBean3(ExampleBean3Another another, int id) {
 		this.another = another;
 		this.id = id;
@@ -35,12 +35,6 @@ public class ExampleBean3 {
 
 	public void setAnother(ExampleBean3Another another) {
 		this.another = another;
-	}
-
-	public class ExampleBean3Another {
-		public void print() {
-			System.out.println("ExampleBean3.ExampleBean3Another");
-		}
 	}
 
 }
