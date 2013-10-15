@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: tag
-Implementation-Version: 0.0.1-SNAPSHOT
-Implementation-Vendor-Id: com.water
-Build-Jdk: 1.6.0_35
-Built-By: Administrator
-Created-By: Maven Integration for Eclipse
-
