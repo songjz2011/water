@@ -14,6 +14,7 @@ import com.web.things.springioc.ClientServiceLocator;
 import com.web.things.springioc.ExampleBean;
 import com.web.things.springioc.ExampleBean1;
 import com.web.things.springioc.ExampleBean2;
+import com.web.things.springioc.ExampleBean3;
 import com.web.things.springioc.FirstIoc;
 
 /**
@@ -75,7 +76,14 @@ public class SpringFactoryTest {
 		assertNotNull(bean);
 		System.out.println(bean.getUltimateAnswer());
 	}
-	
+
+//	@Test
+//	public void get_bean_for_private_constructor_is_not_null() {
+//		ExampleBean3 bean = SpringFactory.getBean("exampleBean3", ExampleBean3.class);
+//		assertNotNull(bean);
+//		bean.getAnother().print();
+//	}
+
 	@Test
 	public void get_bean_for_propertyname_not_equals_setname() {
 		ExampleBean2 bean = SpringFactory.getBean("exampleBean2", ExampleBean2.class);

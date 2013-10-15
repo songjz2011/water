@@ -3,7 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
-
 	<bean id="firstIoc" class="com.web.things.springioc.FirstIoc" />
 	<!-- 别名，可以使用alias定义的名称，来获取name定义的ID对象 -->
 	<alias name="firstIoc" alias="secondIoc" />
@@ -25,6 +24,15 @@
 		<constructor-arg name="id" value="1" />
 		<constructor-arg name="name" value="李四" />
 	</bean>
+	
+	<!-- 构造函数私有化 -->
+	<!-- 
+	<bean id="exampleBean3" class="com.web.things.springioc.ExampleBean3" factory-method="createInstance">
+		<constructor-arg ref="exampleBean3Another"/>
+		<constructor-arg name="id" value="1"/>
+	</bean>
+	<bean id="exampleBean3Another" class="com.web.things.springioc.ExampleBean3.ExampleBean3Another"/>
+	-->
 
 	<!-- 属性的名称和set之后的字符串不一致的情况，要 遵循 set之后的字符串格式，name属性第一个字母大小写可以不区分，后面的必须和set后面严格一致 -->
 	<bean id="exampleBean2" class="com.web.things.springioc.ExampleBean2">
