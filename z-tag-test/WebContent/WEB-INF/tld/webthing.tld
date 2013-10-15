@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<tlib-version>1.0</tlib-version>
+	<short-name>webthing</short-name>
+	<uri>http://www.webthing.com.cn/taglib</uri>
+	<display-name>"自定义标签"</display-name>
+
+	<tag>
+		<name>hello</name>
+		<description>Hello world</description>
+		<tagclass>com.web.things.tag.HelloTag</tagclass>
+		<bodycontent>empty</bodycontent>
+	</tag>
+
+	<tag>
+		<name>helloSupport</name>
+		<description>Hello support world</description>
+		<tagclass>com.web.things.tag.HelloSupportTag</tagclass>
+		<bodycontent>empty</bodycontent>
+	</tag>
+
+	<tag>
+		<name>helloBody</name>
+		<description>Hello support world</description>
+		<tagclass>com.web.things.tag.HelloBodyTag</tagclass>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>counts</name>
+			<description>计数器</description>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>if</name>
+		<description>if</description>
+		<tagclass>com.web.things.tag.IfTag</tagclass>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>value</name>
+			<description>boolean值</description>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>out</name>
+		<description>if</description>
+		<tagclass>com.web.things.tag.OutTag</tagclass>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>value</name>
+			<description>打印值</description>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreach</name>
+		<description>foreach</description>
+		<tagclass>com.web.things.tag.ForEachTag</tagclass>
+		<tei-class>com.web.things.tag.ForEachTEI</tei-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>collection</name>
+			<description>集合</description>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+			<deferred-value>
+				<type>java.lang.Object</type>
+			</deferred-value>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<description>Tag的属性</description>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>type</name>
+			<description>迭代中对象的类型</description>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>helloSimpleTagSupport</name>
+		<description>if</description>
+		<tagclass>com.web.things.tag.HelloSimpleTagSupport</tagclass>
+		<body-content>empty</body-content>
+	</tag>
+
+	<tag>
+		<name>dynamicTag</name>
+		<description>if</description>
+		<tagclass>com.web.things.tag.DynamicTag</tagclass>
+		<body-content>empty</body-content>
+		<dynamic-attributes>true</dynamic-attributes>
+		<attribute>
+			<name>name</name>
+			<description>name</description>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+</taglib>

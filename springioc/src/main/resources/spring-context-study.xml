@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean id="firstIoc" class="com.web.things.springioc.FirstIoc" />
+	<!-- 别名，可以使用alias定义的名称，来获取name定义的ID对象 -->
+	<alias name="firstIoc" alias="secondIoc" />
+
+	<!-- 静态单例对象的spring管理 -->
+	<bean id="singletonClass" class="com.web.things.springioc.SingletonClass"
+		factory-method="getInstance" />
+
+	<bean id="clientServiceLocator" class="com.web.things.springioc.ClientServiceLocator" />
+	<bean id="clientService" factory-bean="clientServiceLocator"
+		factory-method="createClientServiceInstance" />
+
+	<!-- 构造函数-bean实例化 -->
+	<bean id="exampleBeanConstructor" class="com.web.things.springioc.ExampleBean">
+		<constructor-arg name="id" value="1" />
+		<constructor-arg name="name" value="张三" />
+	</bean>
+	<bean id="exampleBeanConstructor1" class="com.web.things.springioc.ExampleBean1">
+		<constructor-arg name="id" value="1" />
+		<constructor-arg name="name" value="李四" />
+	</bean>
+
+	<!-- 属性的名称和set之后的字符串不一致的情况，要 遵循 set之后的字符串格式，name属性第一个字母大小写可以不区分，后面的必须和set后面严格一致 -->
+	<bean id="exampleBean2" class="com.web.things.springioc.ExampleBean2">
+		<property name="dD" value="中国" />
+	</bean>
+
+	<!-- 循环依赖测试 -->
+	<bean id="circularDependencyClass1" class="com.web.things.springioc.CircularDependencyClass1">
+		<property name="class2" ref="circularDependencyClass2" />
+	</bean>
+	<bean id="circularDependencyClass2" class="com.web.things.springioc.CircularDependencyClass2">
+		<property name="class1" ref="circularDependencyClass1" />
+	</bean>
+
+</beans>
