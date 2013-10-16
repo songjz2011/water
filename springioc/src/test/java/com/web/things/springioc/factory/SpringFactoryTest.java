@@ -16,6 +16,7 @@ import com.web.things.springioc.ExampleBean1;
 import com.web.things.springioc.ExampleBean2;
 import com.web.things.springioc.ExampleBean3;
 import com.web.things.springioc.FirstIoc;
+import com.web.things.springioc.dao.DAOProperties;
 
 /**
  * @author songjz
@@ -91,6 +92,14 @@ public class SpringFactoryTest {
 		System.out.println(bean.getAddress());
 	}
 
+	// @Test
+	// public void get_bean_for_use_p_namespace_for_even_more_succinct_xml() {
+	// ExampleBean2 bean = SpringFactory.getBean("exampleBean2ForP",
+	// ExampleBean2.class);
+	// assertEquals("北京", bean.getAddress());
+	// System.out.println(bean.getAddress());
+	// }
+
 	@Test
 	public void get_bean_for_circular_dependency_is_not_null() {
 		CircularDependencyClass1 bean1 = SpringFactory.getBean("circularDependencyClass1",
@@ -102,6 +111,15 @@ public class SpringFactoryTest {
 				CircularDependencyClass2.class);
 		assertNotNull(bean2);
 		bean2.print();
+	}
+
+	@Test
+	public void get_bean_for_properties_test() {
+		DAOProperties bean = SpringFactory.getBean("DAOPropertiesTest", DAOProperties.class);
+		assertNotNull(bean);
+		System.out.println(bean.getProperties().get("name"));
+		DAOProperties bean2 = SpringFactory.getBean("DAOPropertiesTest2", DAOProperties.class);
+		System.out.println(bean2.getProperties().get("name"));
 	}
 
 }
