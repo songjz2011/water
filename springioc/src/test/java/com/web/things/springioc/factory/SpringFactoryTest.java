@@ -1,8 +1,6 @@
 package com.web.things.springioc.factory;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
@@ -17,6 +15,7 @@ import com.web.things.springioc.ExampleBean2;
 import com.web.things.springioc.ExampleBean3;
 import com.web.things.springioc.FirstIoc;
 import com.web.things.springioc.IdRefBean;
+import com.web.things.springioc.InnerBean;
 import com.web.things.springioc.dao.DAOProperties;
 
 /**
@@ -128,6 +127,19 @@ public class SpringFactoryTest {
 		IdRefBean bean = SpringFactory.getBean("idRefBean", IdRefBean.class);
 		assertNotNull(bean);
 		System.out.println(bean.getBeanName());
+	}
+
+	@Test
+	public void inner_bean_spring_init() {
+		InnerBean bean1 = SpringFactory.getBean("innerBean", InnerBean.class);
+		assertNotNull(bean1);
+		InnerBean bean2 = SpringFactory.getBean("innerBean", InnerBean.class);
+		assertEquals(bean1, bean2);
+
+		// 内部的实例 和 外部 的实例 不一样
+		ExampleBean exampleBeanConstructor = SpringFactory.getBean("exampleBeanConstructor",
+				ExampleBean.class);
+		assertNotSame(bean1, exampleBeanConstructor);
 	}
 
 }
