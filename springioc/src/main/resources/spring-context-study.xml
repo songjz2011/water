@@ -68,4 +68,12 @@
 			</value>
 		</property>
 	</bean>
+	
+	<!-- idref标签测试 -->
+	<bean id="idRefBean" class="com.web.things.springioc.IdRefBean">
+		<property name="beanName">
+			<idref bean="exampleBeanConstructor"/>
+		</property>
+	</bean>
+	
 </beans>

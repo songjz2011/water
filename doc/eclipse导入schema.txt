@@ -1,0 +1,16 @@
+Eclipse 添加schema文件  
+
+其实很简单的：以spring2.0的配置文件为例（其他基本类似）：
+进入：window -> Preference -> XML ->XML Catalog
+
+选择：选中“User Specified Entries”，点击“Add...”按钮
+
+填入：
+
+URI: 请选择本地文件系统上SPRING_HOME\dist\resources\spring-beans-2.0.xsd 文件
+Key Type: 选择Schema Location
+Key: http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+
+点击确定
+
+将spring配置文件关闭再重新打开即可。可以使用MyEclipse XML Editor打开这些xml文件

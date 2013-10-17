@@ -16,6 +16,7 @@ import com.web.things.springioc.ExampleBean1;
 import com.web.things.springioc.ExampleBean2;
 import com.web.things.springioc.ExampleBean3;
 import com.web.things.springioc.FirstIoc;
+import com.web.things.springioc.IdRefBean;
 import com.web.things.springioc.dao.DAOProperties;
 
 /**
@@ -120,6 +121,13 @@ public class SpringFactoryTest {
 		System.out.println(bean.getProperties().get("name"));
 		DAOProperties bean2 = SpringFactory.getBean("DAOPropertiesTest2", DAOProperties.class);
 		System.out.println(bean2.getProperties().get("name"));
+	}
+
+	@Test
+	public void idref_validate() {
+		IdRefBean bean = SpringFactory.getBean("idRefBean", IdRefBean.class);
+		assertNotNull(bean);
+		System.out.println(bean.getBeanName());
 	}
 
 }
