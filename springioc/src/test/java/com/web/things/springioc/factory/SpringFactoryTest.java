@@ -1,6 +1,14 @@
 package com.web.things.springioc.factory;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 
 import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
@@ -9,6 +17,7 @@ import com.web.things.springioc.CircularDependencyClass1;
 import com.web.things.springioc.CircularDependencyClass2;
 import com.web.things.springioc.ClientService;
 import com.web.things.springioc.ClientServiceLocator;
+import com.web.things.springioc.CollectionBean;
 import com.web.things.springioc.ExampleBean;
 import com.web.things.springioc.ExampleBean1;
 import com.web.things.springioc.ExampleBean2;
@@ -140,6 +149,41 @@ public class SpringFactoryTest {
 		ExampleBean exampleBeanConstructor = SpringFactory.getBean("exampleBeanConstructor",
 				ExampleBean.class);
 		assertNotSame(bean1, exampleBeanConstructor);
+	}
+
+	@Test
+	public void collection_property() {
+		CollectionBean bean = SpringFactory.getBean("collectionBean", CollectionBean.class);
+		StringBuffer print = new StringBuffer();
+		String[] array = bean.getArray();
+		print.append("打印数组：");
+		for (String str : array) {
+			print.append(str).append(",");
+		}
+		System.out.println(print);
+		print.delete(0, print.length());
+
+		Properties pro = bean.getEmails();
+		System.out.println(pro);
+
+		List<String> list = bean.getList();
+		System.out.println(list);
+
+		Map<String, String> map = bean.getMap();
+		System.out.println(map);
+
+		Set<String> set = bean.getSet();
+		System.out.println(set);
+	}
+
+	@Test
+	public void collection_property_merge() {
+		CollectionBean bean = SpringFactory.getBean("collectionBeanMerge", CollectionBean.class);
+		Properties pro = bean.getEmails();
+		System.out.println(pro);
+		
+		CollectionBean bean1 = SpringFactory.getBean("collectionBean", CollectionBean.class);
+		assertNotSame(bean, bean1);
 	}
 
 }

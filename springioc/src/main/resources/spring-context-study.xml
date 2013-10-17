@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
-           
+
 	<bean id="firstIoc" class="com.web.things.springioc.FirstIoc" />
 	<!-- 别名，可以使用alias定义的名称，来获取name定义的ID对象 -->
 	<alias name="firstIoc" alias="secondIoc" />
@@ -76,15 +76,61 @@
 			<idref bean="exampleBeanConstructor" />
 		</property>
 	</bean>
-	
+
 	<!-- InnerBean测试 -->
 	<bean id="innerBean" class="com.web.things.springioc.InnerBean">
 		<property name="bean">
 			<bean class="com.web.things.springioc.ExampleBean">
-				<constructor-arg name="id" value="1"/>
-				<constructor-arg name="name" value="内部实例化测试"/>
+				<constructor-arg name="id" value="1" />
+				<constructor-arg name="name" value="内部实例化测试" />
 			</bean>
 		</property>
 	</bean>
-	
+
+	<!-- Collections类型，spring注入 -->
+	<bean id="collectionBean" class="com.web.things.springioc.CollectionBean">
+		<property name="emails">
+			<props>
+				<prop key="administrator">administrator@example.org</prop>
+				<prop key="support">support@example.org</prop>
+				<prop key="development">development@example.org</prop>
+			</props>
+		</property>
+		<property name="list">
+			<list>
+				<value>list1</value>
+				<value>list2</value>
+			</list>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="map1" value="map一" />
+				<entry key="map2" value="map二" />
+			</map>
+		</property>
+		<property name="set">
+			<set>
+				<value>set1</value>
+				<value>set2</value>
+				<value>set属性值3</value>
+			</set>
+		</property>
+		<property name="array">
+			<list>
+				<value>数组1</value>
+				<value>数组2</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Collections类型，spring注入 属性 merge，default和false 作用一样 -->
+	<bean id="collectionBeanMerge" parent="collectionBean">
+		<property name="emails">
+			<props merge="true">
+				<prop key="sales">sales@example.com</prop>
+				<prop key="support">support@example.org</prop>
+			</props>
+		</property>
+	</bean>
+
 </beans>
