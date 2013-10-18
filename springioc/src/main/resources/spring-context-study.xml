@@ -53,7 +53,7 @@
 	</bean>
 
 	<!-- Properties 测试 -->
-	<bean id="DAOPropertiesTest" class="com.web.things.springioc.dao.DAOProperties">
+	<bean id="DAOPropertiesTest" class="com.web.things.springioc.dao.DaoProperties">
 		<property name="properties">
 			<props>
 				<prop key="id">1</prop>
@@ -61,7 +61,7 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="DAOPropertiesTest2" class="com.web.things.springioc.dao.DAOProperties">
+	<bean id="DAOPropertiesTest2" class="com.web.things.springioc.dao.DaoProperties">
 		<property name="properties">
 			<value>
 				id=2
@@ -103,7 +103,7 @@
 			</list>
 		</property>
 		<property name="map">
-			<map>
+			<map key-type="java.lang.String" value-type="java.lang.String">
 				<entry key="map1" value="map一" />
 				<entry key="map2" value="map二" />
 			</map>
@@ -132,5 +132,5 @@
 			</props>
 		</property>
 	</bean>
-	
+
 </beans>

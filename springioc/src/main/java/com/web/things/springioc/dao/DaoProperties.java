@@ -2,11 +2,11 @@ package com.web.things.springioc.dao;
 
 import java.util.Properties;
 
-public class DAOProperties {
+public class DaoProperties {
 
 	private Properties properties;
 
-	public DAOProperties() {
+	public DaoProperties() {
 
 	}
 

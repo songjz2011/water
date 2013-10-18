@@ -1,6 +1,6 @@
 package com.web.things.springioc.service.imp;
 
-import com.web.things.springioc.dao.PersonDAO;
+import com.web.things.springioc.dao.PersonDao;
 import com.web.things.springioc.entity.Person;
 import com.web.things.springioc.service.PersonService;
 
@@ -10,18 +10,17 @@ import com.web.things.springioc.service.PersonService;
  */
 public class PersonServiceImp implements PersonService{
 	
-	private PersonDAO personDAO;
+	private PersonDao personDao;
 
 	public Person findById(Long id) {
-		return personDAO.findById(id);
+		return personDao.findById(id);
 	}
 
-	public PersonDAO getPersonDAO() {
-		return personDAO;
+	public PersonDao getPersonDao() {
+		return personDao;
 	}
 
-	public void setPersonDAO(PersonDAO personDAO) {
-		this.personDAO = personDAO;
+	public void setPersonDao(PersonDao personDao) {
+		this.personDao = personDao;
 	}
-
 }

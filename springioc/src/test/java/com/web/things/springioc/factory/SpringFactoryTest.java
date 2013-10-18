@@ -25,7 +25,7 @@ import com.web.things.springioc.ExampleBean3;
 import com.web.things.springioc.FirstIoc;
 import com.web.things.springioc.IdRefBean;
 import com.web.things.springioc.InnerBean;
-import com.web.things.springioc.dao.DAOProperties;
+import com.web.things.springioc.dao.DaoProperties;
 
 /**
  * @author songjz
@@ -124,10 +124,10 @@ public class SpringFactoryTest {
 
 	@Test
 	public void get_bean_for_properties_test() {
-		DAOProperties bean = SpringFactory.getBean("DAOPropertiesTest", DAOProperties.class);
+		DaoProperties bean = SpringFactory.getBean("DAOPropertiesTest", DaoProperties.class);
 		assertNotNull(bean);
 		System.out.println(bean.getProperties().get("name"));
-		DAOProperties bean2 = SpringFactory.getBean("DAOPropertiesTest2", DAOProperties.class);
+		DaoProperties bean2 = SpringFactory.getBean("DAOPropertiesTest2", DaoProperties.class);
 		System.out.println(bean2.getProperties().get("name"));
 	}
 
