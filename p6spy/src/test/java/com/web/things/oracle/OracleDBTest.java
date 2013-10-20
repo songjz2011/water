@@ -14,11 +14,11 @@ import org.junit.Test;
  */
 public class OracleDBTest {
 
-	@Test
-	public void conn_should_not_be_null() {
-		Connection conn = OracleDB.getConnection();
-		assertNotNull(conn);
-		OracleDB.closeConnetion(conn);
-	}
+//	@Test
+//	public void conn_should_not_be_null() {
+//		Connection conn = OracleDB.getConnection();
+//		assertNotNull(conn);
+//		OracleDB.closeConnetion(conn);
+//	}
 	
 }
