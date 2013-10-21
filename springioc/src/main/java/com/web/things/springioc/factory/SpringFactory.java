@@ -16,8 +16,9 @@ public class SpringFactory {
 		String contextPath = loader.getResource("spring-context.xml").getPath();
 		String contextStudyPath = loader.getResource("spring-context-study.xml").getPath();
 		String contextDaoPath = loader.getResource("spring-context-dao.xml").getPath();
+		String contextManagerPath = loader.getResource("spring-manager.xml").getPath();
 		context = new FileSystemXmlApplicationContext(new String[] { contextPath, contextStudyPath,
-				contextDaoPath });
+				contextDaoPath, contextManagerPath });
 	}
 
 	public static Object getBean(String id) {
