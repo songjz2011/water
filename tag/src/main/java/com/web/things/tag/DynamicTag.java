@@ -24,7 +24,6 @@ public class DynamicTag extends SimpleTagSupport implements DynamicAttributes {
 
 	private String name;
 
-	@Override
 	public void setDynamicAttribute(String uri, String name, Object value) throws JspException {
 		keys.add(name);
 		values.add(value);

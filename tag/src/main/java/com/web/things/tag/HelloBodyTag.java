@@ -32,7 +32,7 @@ public class HelloBodyTag implements BodyTag {
 	 * 		只有在定义了标签体，并且实现BodyTag接口时，才起作用
 	 * </pre>
 	 */
-	@Override
+
 	public int doStartTag() throws JspException {
 		System.out.println("HellorBodyTag.doStartTag()");
 		if (counts < 1) {
@@ -41,7 +41,6 @@ public class HelloBodyTag implements BodyTag {
 		return EVAL_BODY_INCLUDE;
 	}
 
-	@Override
 	public int doEndTag() throws JspException {
 		System.out.println("HellorBodyTag.doEndTag()");
 		try {
@@ -58,7 +57,7 @@ public class HelloBodyTag implements BodyTag {
 	/**
 	 * 如果在计算BodyContent时需要进行一些初始化，就在这个方法中进行。
 	 */
-	@Override
+
 	public void doInitBody() throws JspException {
 		System.out.println("HellorBodyTag.doInitBody()");
 	}
@@ -71,7 +70,7 @@ public class HelloBodyTag implements BodyTag {
 	 * 直接返回SKIP_BODY：才继续执行doEndTag方法
 	 * </pre>
 	 */
-	@Override
+
 	public int doAfterBody() throws JspException {
 		System.out.println("HellorBodyTag.doAfterBody()");
 		try {
@@ -88,27 +87,22 @@ public class HelloBodyTag implements BodyTag {
 		return SKIP_BODY;
 	}
 
-	@Override
 	public void release() {
 
 	}
 
-	@Override
 	public void setBodyContent(BodyContent bodyContent) {
 		this.bodyContent = bodyContent;
 	}
 
-	@Override
 	public void setPageContext(PageContext pageContext) {
 		this.pageContext = pageContext;
 	}
 
-	@Override
 	public void setParent(Tag parent) {
 		this.parent = parent;
 	}
 
-	@Override
 	public Tag getParent() {
 		return parent;
 	}

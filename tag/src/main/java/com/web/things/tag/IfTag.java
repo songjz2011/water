@@ -18,7 +18,6 @@ public class IfTag implements BodyTag {
 
 	private boolean value;
 
-	@Override
 	public int doStartTag() throws JspException {
 		if (value) {
 			System.out.println("IfTag.doStartTag() value is true");
@@ -28,42 +27,34 @@ public class IfTag implements BodyTag {
 		return SKIP_BODY;
 	}
 
-	@Override
 	public int doEndTag() throws JspException {
 		return EVAL_PAGE;
 	}
 
-	@Override
 	public void doInitBody() throws JspException {
 
 	}
 
-	@Override
 	public int doAfterBody() throws JspException {
 		return SKIP_BODY;
 	}
 
-	@Override
 	public void setPageContext(PageContext pageContext) {
 		this.pageContext = pageContext;
 	}
 
-	@Override
 	public void setParent(Tag parent) {
 		this.parent = parent;
 	}
 
-	@Override
 	public Tag getParent() {
 		return this.parent;
 	}
 
-	@Override
 	public void setBodyContent(BodyContent bodyContent) {
 		this.bodyContent = bodyContent;
 	}
 
-	@Override
 	public void release() {
 		bodyContent = null;
 		parent = null;

@@ -29,7 +29,7 @@ public class HelloTag implements Tag {
 	 * 3、参见HelloBodyTag
 	 * </pre>
 	 */
-	@Override
+
 	public int doStartTag() throws JspException {
 		// 返回SKIP_BODY，表示不计算标签体
 		return EVAL_BODY_INCLUDE;
@@ -40,7 +40,7 @@ public class HelloTag implements Tag {
 	 * EVAL_PAGE：表示容器将在标签结束时继续计算JSP页面的其他部分
 	 * SKIP_PAGE：表示容器将在标签结束时不继续计算JSP页面的其他部分，定义在该标签之后的内容不会被显示
 	 */
-	@Override
+
 	public int doEndTag() throws JspException {
 		try {
 			pageContext.getOut().write("Hello World!你好，世界！");
@@ -51,12 +51,10 @@ public class HelloTag implements Tag {
 		return EVAL_PAGE;
 	}
 
-	@Override
 	public Tag getParent() {
 		return parent;
 	}
 
-	@Override
 	public void release() {
 
 	}
@@ -64,7 +62,7 @@ public class HelloTag implements Tag {
 	/**
 	 * 设置标签的页面的上下文
 	 */
-	@Override
+
 	public void setPageContext(PageContext pageContext) {
 		this.pageContext = pageContext;
 	}
@@ -72,7 +70,7 @@ public class HelloTag implements Tag {
 	/**
 	 * 设置上一级标签
 	 */
-	@Override
+
 	public void setParent(Tag parent) {
 		this.parent = parent;
 	}

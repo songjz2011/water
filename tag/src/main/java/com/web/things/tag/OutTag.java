@@ -19,12 +19,10 @@ public class OutTag implements Tag {
 
 	private Object value;
 
-	@Override
 	public int doStartTag() throws JspException {
 		return EVAL_BODY_INCLUDE;
 	}
 
-	@Override
 	public int doEndTag() throws JspException {
 		try {
 			pageContext.getOut().write(value.toString());
@@ -35,22 +33,18 @@ public class OutTag implements Tag {
 		return EVAL_PAGE;
 	}
 
-	@Override
 	public void release() {
 		parent = null;
 	}
 
-	@Override
 	public void setPageContext(PageContext pageContext) {
 		this.pageContext = pageContext;
 	}
 
-	@Override
 	public void setParent(Tag parent) {
 		this.parent = parent;
 	}
 
-	@Override
 	public Tag getParent() {
 		return parent;
 	}
