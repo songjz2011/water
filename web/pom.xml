@@ -24,13 +24,34 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- util -->
 		<dependency>
 			<groupId>com.web.things</groupId>
 			<artifactId>util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 	</dependencies>
+
+	<build>
+		<finalName>web</finalName>
+
+		<plugins>
+			<!-- tomcat插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<!-- 
+				<configuration>
+					<url>http://localhost:8080/manager/html</url>
+					<server>tomcat</server>
+				</configuration>
+				-->
+			</plugin>
+			
+			
+		</plugins>
+	</build>
+
 </project>

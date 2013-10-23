@@ -11,13 +11,48 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<fastjson.version>1.1.35</fastjson.version>
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.6.4</slf4j.version>
 		<jstl.version>1.2</jstl.version>
+
+		<!-- Plugin的属性定义 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.6</jdk.version>
 	</properties>
+
+	<!-- 指定额外的仓库，因为有的 插件不是放在maven的仓库中 -->
+	
+	<!-- tomcat 插件，必须指定，不然 不能tomcat热部署 -->
+	<repositories>
+		<repository>
+			<id>people.apache.snapshots</id>
+			<url>http://repository.apache.org/content/groups/snapshots-group/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>apache.snapshots</id>
+			<name>Apache Snapshots</name>
+			<url>http://repository.apache.org/content/groups/snapshots-group/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+
+
 
 	<dependencyManagement>
 		<dependencies>
@@ -187,6 +222,59 @@
 					</configuration>
 				</plugin>
 
+				<!-- war打包插件, 设定war包名称不带版本号 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.2</version>
+					<configuration>
+						<warName>${project.artifactId}</warName>
+					</configuration>
+				</plugin>
+
+				<!-- 构建源码包的插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.1.2</version>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>jar-no-fork</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- jetty插件 -->
+				<plugin>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>${jetty.version}</version>
+					<configuration>
+						<stopKey>foo</stopKey>
+						<stopPort>9999</stopPort>
+					</configuration>
+				</plugin>
+
+				<!-- tomcat插件 -->
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>2.0-beta-1</version>
+					<!-- 
+					<configuration>
+						<url>http://localhost:8080/manager/html</url>
+						<server>tomcat</server>
+					</configuration>
+					-->
+				</plugin>
+
+
+
+				<!-- 以下 还没有 用到 -->
+
 				<!-- resource插件 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -227,16 +315,6 @@
 					<version>2.5.1</version>
 				</plugin>
 
-				<!-- war打包插件, 设定war包名称不带版本号 -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-					<version>2.2</version>
-					<configuration>
-						<warName>${project.artifactId}</warName>
-					</configuration>
-				</plugin>
-
 				<!-- jar打包相关插件 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -249,20 +327,6 @@
 							</manifest>
 						</archive>
 					</configuration>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>2.1.2</version>
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<goals>
-								<goal>jar-no-fork</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 
 				<!-- clean插件 -->
@@ -287,17 +351,6 @@
 					<configuration>
 						<downloadSources>true</downloadSources>
 						<downloadJavadocs>false</downloadJavadocs>
-					</configuration>
-				</plugin>
-
-				<!-- jetty插件 -->
-				<plugin>
-					<groupId>org.mortbay.jetty</groupId>
-					<artifactId>jetty-maven-plugin</artifactId>
-					<version>${jetty.version}</version>
-					<configuration>
-						<stopKey>foo</stopKey>
-						<stopPort>9999</stopPort>
 					</configuration>
 				</plugin>
 
