@@ -23,9 +23,12 @@ import com.web.things.springioc.ExampleBean1;
 import com.web.things.springioc.ExampleBean2;
 import com.web.things.springioc.ExampleBean3;
 import com.web.things.springioc.FirstIoc;
+import com.web.things.springioc.FirstIocForPrototype;
 import com.web.things.springioc.IdRefBean;
 import com.web.things.springioc.InnerBean;
+import com.web.things.springioc.MyValueCalculator;
 import com.web.things.springioc.dao.DaoProperties;
+import com.web.things.springioc.manager.CommandManager1;
 
 /**
  * @author songjz
@@ -51,6 +54,33 @@ public class SpringFactoryTest {
 	public void get_bean_for_alias_is_not_null() {
 		FirstIoc ico = SpringFactory.getBean("secondIoc", FirstIoc.class);
 		assertNotNull(ico);
+	}
+
+	@Test
+	public void scope_prototype_for_bean() {
+		FirstIocForPrototype bean = SpringFactory.getBean("firstIocForPrototype",
+				FirstIocForPrototype.class);
+		FirstIocForPrototype bean1 = SpringFactory.getBean("firstIocForPrototype",
+				FirstIocForPrototype.class);
+		// System.out.println("FirstIocForPrototype.ioc : " + bean.getIoc());
+		// System.out.println("FirstIocForPrototype.ioc1 : " + bean1.getIoc());
+		assertNotSame(bean, bean1);
+		assertEquals(bean.getIoc(), bean1.getIoc());
+
+		FirstIoc ioc = SpringFactory.getBean("firstIoc", FirstIoc.class);
+		FirstIoc ioc1 = SpringFactory.getBean("firstIoc", FirstIoc.class);
+		// System.out.println("FirstIoc.prototype : " + ioc.getPrototype());
+		// System.out.println("FirstIoc.prototype1 : " + ioc1.getPrototype());
+		assertEquals(ioc.getPrototype(), ioc1.getPrototype());
+	}
+
+	@Test
+	public void get_bean_two_id_for_same_bean() {
+		FirstIoc ioc = SpringFactory.getBean("firstIoc", FirstIoc.class);
+		FirstIoc ioc1 = SpringFactory.getBean("firstIoc1", FirstIoc.class);
+		// System.out.println("ioc = " + ioc);
+		// System.out.println("ioc1 = " + ioc1);
+		assertNotSame(ioc, ioc1);
 	}
 
 	@Test
@@ -181,9 +211,21 @@ public class SpringFactoryTest {
 		CollectionBean bean = SpringFactory.getBean("collectionBeanMerge", CollectionBean.class);
 		Properties pro = bean.getEmails();
 		System.out.println(pro);
-		
+
 		CollectionBean bean1 = SpringFactory.getBean("collectionBean", CollectionBean.class);
 		assertNotSame(bean, bean1);
 	}
 
+	@Test
+	public void lookup_method_test() {
+		CommandManager1 bean = SpringFactory.getBean("commandManager1", CommandManager1.class);
+		bean.createCommand().execute();
+	}
+
+	@Test
+	public void replace_method_test() {
+		MyValueCalculator calculator = SpringFactory.getBean("myValueCalculator",
+				MyValueCalculator.class);
+		calculator.computeValue("我是谁");
+	}
 }
