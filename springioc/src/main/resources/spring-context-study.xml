@@ -17,6 +17,10 @@
 		<property name="ioc" ref="firstIoc" />
 	</bean>
 
+	<!-- 测试 没有web环境下，设置是scope是request的情形 -->
+	<bean id="firstIocForScopeRequest" class="com.web.things.springioc.FirstIoc"
+		scope="request" />
+
 
 	<!-- 静态单例对象的spring管理 -->
 	<bean id="singletonClass" class="com.web.things.springioc.SingletonClass"

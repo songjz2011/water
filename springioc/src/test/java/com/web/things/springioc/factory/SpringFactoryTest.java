@@ -73,6 +73,11 @@ public class SpringFactoryTest {
 		// System.out.println("FirstIoc.prototype1 : " + ioc1.getPrototype());
 		assertEquals(ioc.getPrototype(), ioc1.getPrototype());
 	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void scope_request_without_web_enviroment() {
+		SpringFactory.getBean("firstIocForScopeRequest", FirstIoc.class);
+	}
 
 	@Test
 	public void get_bean_two_id_for_same_bean() {
