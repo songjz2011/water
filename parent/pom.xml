@@ -24,7 +24,7 @@
 
 	<!-- 指定额外的仓库，因为有的 插件不是放在maven的仓库中 -->
 	
-	<!-- tomcat 插件，必须指定，不然 不能tomcat热部署 -->
+	<!-- tomcat 插件仓库，不指定则下载不了相应插件 -->
 	<repositories>
 		<repository>
 			<id>people.apache.snapshots</id>
