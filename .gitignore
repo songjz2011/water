@@ -8,5 +8,7 @@ web/target
 z-db/target
 z-model/target
 
+stringoperation/target
+
 z-spy-source/build
 z-tag-test/build
