@@ -1,10 +1,5 @@
 package com.web.things.oracle;
 
-import static org.junit.Assert.*;
-
-import java.sql.Connection;
-
-import org.junit.Test;
 
 /**
  * 链接oracle数据库Test

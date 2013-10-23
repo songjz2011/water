@@ -38,7 +38,8 @@ public class HelloController extends HttpServlet {
 	}
 
 	@Override
-	public Enumeration<String> getInitParameterNames() {
+	@SuppressWarnings({"rawtypes" })
+	public Enumeration getInitParameterNames() {
 		return super.getInitParameterNames();
 	}
 

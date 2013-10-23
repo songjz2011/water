@@ -1,12 +1,5 @@
 package com.web.things.oracle;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-import org.junit.Test;
 
 /**
  * @author songjz 
