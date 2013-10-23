@@ -13,6 +13,12 @@ parent/.project
 parent/.settings
 parent/.classpath
 
+spring-scope/target
+spring-scope/.project
+spring-scope/.settings
+spring-scope/.classpath
+
+
 springioc/target
 springioc/.project
 springioc/.settings
