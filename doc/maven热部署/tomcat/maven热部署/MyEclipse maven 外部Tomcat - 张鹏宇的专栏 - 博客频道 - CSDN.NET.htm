@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>MyEclipse maven 外部Tomcat - 张鹏宇的专栏 - 博客频道 - CSDN.NET</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="上一篇，介绍了如何创建Maven项目以及如何在内嵌的Tomcat中部署测试Web应用，本篇主要介绍如何将开发的应用程序自动部署至外部Tomcat。本例中使用的Tomcat版本为Tomcat 7。1、&nbsp; 安装Tomcat 71）&nbsp; 将Tomcat 7的安装包解压至C:\opensource，并将文件夹重命名为tomcat-7.0.34，得到的目录结构如下&nbsp;2）&nbsp; 新建系统变量CA">
+<script src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ga.js" async="" type="text/javascript"></script><script src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ad.js"></script>
+<link rel="Stylesheet" type="text/css" href="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/style.css">
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/zhangpengyu321/rss/list">
+<link rel="shortcut icon" href="http://blog.csdn.net/favicon.ico">
+<link type="text/css" rel="stylesheet" href="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/default.css">
+</head>
+<body>
+<script src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/pub_topnav_2011.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/navtop_2012.css">
+<div class="nav_top_2011">
+<p><span style="color:red;">您还未登录！</span>|<a href="https://passport.csdn.net/account/login" target="_top">登录</a>|<a href="https://passport.csdn.net/account/register" target="_top">注册</a>|<a href="https://passport.csdn.net/help/faq" target="_blank">帮助</a></p><ul>
+<li><a href="http://www.csdn.net/" target="_blank" style="color: red;">首页</a></li>
+<li><a href="http://news.csdn.net/" target="_blank">业界</a></li>
+<li><a href="http://mobile.csdn.net/" target="_blank">移动</a></li>
+<li><a href="http://cloud.csdn.net/" target="_blank">云计算</a></li>
+<li><a href="http://sd.csdn.net/" target="_blank">研发</a></li>
+<li><a href="http://bbs.csdn.net/" target="_blank">论坛</a></li>
+<li><a href="http://blog.csdn.net/" target="_blank">博客</a></li>
+<li><a href="http://download.csdn.net/" target="_blank">下载</a></li>
+<li class="more"><h2 id="topnav_btnmore" onclick="showNavMore(this)"><a href="javascript:void(0);">更多</a></h2>
+<div id="topnav_hidlist">
+<iframe name="nav_frm" src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/a.htm" frameborder="no" height="178" scrolling="no" width="92"></iframe>
+</div>
+</li>
+</ul>
+</div>
+
+
+<div id="container">
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h1><a href="http://blog.csdn.net/zhangpengyu321">张鹏宇的专栏</a></h1>
+            <h2>You can't use Ctrl+c to get the word</h2>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg"></div>
+    <div class="navigator">
+        <ul>
+            <li id="btnContents"><a href="http://blog.csdn.net/zhangpengyu321?viewmode=contents"><span><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ico_list.gif">目录视图</span></a></li>
+            <li id="btnView"><a href="http://blog.csdn.net/zhangpengyu321?viewmode=list"><span><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ico_summary.gif">摘要视图</span></a></li>
+            <li id="btnRss"><a href="http://blog.csdn.net/zhangpengyu321/rss/list"><span><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ico_rss.gif">订阅</span></a></li>
+</ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "zhangpengyu321";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/zhangpengyu321";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";
+</script>
+
+<div id="body">
+<div id="main">
+<div class="main">
+<div class="notice tracking-ad" data-mod="popu_3"> 
+
+<a href="http://www.csdn.net/article/2013-10-15/2817185" target="_blank">
+<font color="blue">IT俱乐部创始人杜鸿飞专访</font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://surveies.csdn.net/survey/comein/613" target="_blank"><font color="red">MDCC2013中国移动开发者大会社区赠票申请 
+</font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/csdnproduct/article/details/12423189" target="_blank">
+<font color="blue">Tag功能介绍—我们为什么打Tag 
+ </font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/11975399" target="_blank">
+<font color="red">“说说家乡的互联网”主题有奖征文
+ </font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://newsletter.csdn.net/show_book/show_book_list?type=5" target="_blank">
+<font color="red">订阅CSDN社区周刊，及时了解社区精华内容
+ </font></a>
+
+</div><link href="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/comment1.css" type="text/css" rel="stylesheet">
+<link href="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/style1.css" type="text/css" rel="stylesheet">
+
+<div id="article_details" class="details">
+    <div class="article_title">
+    <span class="ico ico_type_Original"></span>
+    <h3>
+        <span class="link_title"><a href="http://blog.csdn.net/zhangpengyu321/article/details/12352881">
+        MyEclipse maven 外部Tomcat
+        </a></span>
+    </h3>
+</div>
+
+        
+    <div class="article_manage">
+        <span class="link_categories">
+        分类：
+            <a href="http://blog.csdn.net/zhangpengyu321/article/category/1425896">java Web</a> 
+        </span>
+    <span class="link_postdate">2013-10-06 17:25</span>
+    <span class="link_view" title="阅读次数">32人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="#comments">评论</a>(0)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:collectArticle('MyEclipse maven 外部Tomcat','12352881');return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="#report" onclick="javascript:report(12352881,2);return false;" title="举报">举报</a></span>
+    
+</div>
+
+
+    
+<div id="article_content" class="article_content">
+
+上一篇，介绍了如何创建Maven项目以及如何在内嵌的Tomcat中部署测试Web应用，本篇主要介绍如何将开发的应用程序自动部署至外部Tomcat。本例中使用的Tomcat版本为Tomcat 7。
+<p>1、&nbsp; 安装Tomcat 7</p>
+<p>1）&nbsp; 将Tomcat 7的安装包解压至C:\opensource，并将文件夹重命名为tomcat-7.0.34，得到的目录结构如下</p>
+<p><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23115015-0896984c38c84cf490e07a5ba4c67e25.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="362" width="439"></p>
+<p align="center">&nbsp;</p>
+<p>2）&nbsp; 新建系统变量CATALINA_HOME，值为：C:\opensource\tomcat-7.0.34</p>
+<p>3）&nbsp; 在系统变量&nbsp; Path的最后面添加%CATALINA_HOME%\lib; 
+%CATALINA_HOME%\lib\servlet-api.jar;%CATALINA_HOME%\lib\jsp-api.jar&nbsp;&nbsp;
+ 注意它们之间的分号，一定是英文的分号。</p>
+<p>4）&nbsp; Tomcat 7.0的管理员的配置，进入C:\opensource\tomcat-7.0.34（Tomcat目录）下的conf目录，编辑tomcat-users.xml，找到最后的：</p>
+<p>&lt;!--<br>
+&lt;role rolename="tomcat"/&gt;<br>
+&lt;role rolename="role1"/&gt;<br>
+&lt;user username="tomcat" password="tomcat" roles="tomcat"/&gt;<br>
+&lt;user username="both" password="tomcat" roles="tomcat,role1"/&gt;<br>
+&lt;user username="role1" password="tomcat" roles="role1"/&gt;</p>
+<p>&nbsp;--&gt;</p>
+<p>在上面这段后面 &nbsp;添加上：</p>
+<div class="cnblogs_code">
+<pre><span style="color:#0000ff">&lt;</span><span style="color:#800000">role </span><span style="color:#ff0000">rolename</span><span style="color:#0000ff">="manager-gui"</span><span style="color:#0000ff">/&gt;</span>
+<span style="color:#0000ff">&lt;</span><span style="color:#800000">role </span><span style="color:#ff0000">rolename</span><span style="color:#0000ff">="manager-script"</span><span style="color:#0000ff">/&gt;</span>
+<span style="color:#0000ff">&lt;</span><span style="color:#800000">user </span><span style="color:#ff0000">username</span><span style="color:#0000ff">="admin"</span><span style="color:#ff0000"> password</span><span style="color:#0000ff">="admin"</span><span style="color:#ff0000"> roles</span><span style="color:#0000ff">="manager-gui,manager-script"</span><span style="color:#0000ff">/&gt;</span></pre>
+</div>
+<p>从添加的这段中可以看到管理员的用户名和密码，后面配置将会用到。</p>
+<p>5）&nbsp; 进入Tomcat 目录下的bin目录，双击startup.bat&nbsp;&nbsp; 启动Tomcat&nbsp; 在命令行窗口会出来英文提示。</p>
+<p>6）&nbsp; 浏览器输入：http://localhost:8080&nbsp; 可以看到Tomcat的欢迎页面就说明配置成功了，点击右上角上manager连接，输入上面配置的用户名和密码，就可以进入管理页面。</p>
+<p>补充：使用外部的tomcat7 需要使用 tomcat-maven-plugin 
+的新版本，版本支持tomcat6和tomcat7，groupId也由org.codehaus.mojo改为
+org.apache.tomcat.maven。&nbsp; 可以参考看：</p>
+<p>Maven的Tomcat插件地址为，<a target="_blank" href="http://tomcat.apache.org/maven-plugin.html">http://tomcat.apache.org/maven-plugin.html</a>。无需手动下载，按照本文配置，MyEclipse会自动下载到相应的tomcat-maven-plugin插件</p>
+<p>2、修改项目的pom.xml&nbsp;&nbsp;</p>
+<p>1）在project的build节点下 添加tomcat-maven-plugin插件信息，如下写法添加了tomcat6和tomcat7的插件，如只用1种可以只写一个</p>
+<p><span style="color:#ff0000">&nbsp;&nbsp;</span></p>
+<div class="cnblogs_code"><br>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a target="_blank" title="复制代码"><br>
+</a></span>
+<pre class="prettyprint"><span class="pln">  </span><span class="tag">&lt;pluginManagement&gt;</span><span class="pln">
+      </span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+        </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+          </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.tomcat.maven</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+          </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">tomcat6-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+          </span><span class="tag">&lt;version&gt;</span><span class="pln">2.0-beta-1</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+        </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+          </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.tomcat.maven</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+          </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">tomcat7-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+          </span><span class="tag">&lt;version&gt;</span><span class="pln">2.0-beta-1</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/pluginManagement&gt;</span></pre>
+<br>
+</div>
+</div>
+<p>--2.0-SNAPSHOT版本已经release了,&nbsp;</p>
+<p><br>
+</p>
+<p>看看tomcat 下webapp 包里多了什么。我的包名变成了MSSH,我自己没发现，还一个劲找自己的包。。中间走了很多弯路。 localhost:8080/MSSH<br>
+</p>
+<p>2）&nbsp; 在project节点下，在插件仓库（plugin 
+repositories）和普通仓库（repositories）中添加以下仓库到pom.xml，保证maven可以从仓库中下载到tomcat-
+maven-plugin插件，少添加了这段信息，会出现如下报错信息：</p>
+<p>No plugin found for prefix 'tomcat' in the current project and in the plug</p>
+<p><span style="color:#ff0000">&nbsp;</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a target="_blank" title="复制代码"><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color:#0000ff">&lt;</span><span style="color:#800000">repositories</span><span style="color:#0000ff">&gt;</span>
+<span style="color:#0000ff">&lt;</span><span style="color:#800000">repository</span><span style="color:#0000ff">&gt;</span>
+
+      <span style="color:#0000ff">&lt;</span><span style="color:#800000">id</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">
+      people.apache.snapshots
+     </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">id</span><span style="color:#0000ff">&gt;</span>  
+
+     <span style="color:#0000ff">&lt;</span><span style="color:#800000">url</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">   
+      http://repository.apache.org/content/groups/snapshots-group/  
+    </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">url</span><span style="color:#0000ff">&gt;</span>  
+
+    <span style="color:#0000ff">&lt;</span><span style="color:#800000">releases</span><span style="color:#0000ff">&gt;</span>  
+        <span style="color:#0000ff">&lt;</span><span style="color:#800000">enabled</span><span style="color:#0000ff">&gt;</span>false<span style="color:#0000ff">&lt;/</span><span style="color:#800000">enabled</span><span style="color:#0000ff">&gt;</span>  
+    <span style="color:#0000ff">&lt;/</span><span style="color:#800000">releases</span><span style="color:#0000ff">&gt;</span>  
+
+    <span style="color:#0000ff">&lt;</span><span style="color:#800000">snapshots</span><span style="color:#0000ff">&gt;</span>  
+        <span style="color:#0000ff">&lt;</span><span style="color:#800000">enabled</span><span style="color:#0000ff">&gt;</span>true<span style="color:#0000ff">&lt;/</span><span style="color:#800000">enabled</span><span style="color:#0000ff">&gt;</span>  
+    <span style="color:#0000ff">&lt;/</span><span style="color:#800000">snapshots</span><span style="color:#0000ff">&gt;</span>  
+
+<span style="color:#0000ff">&lt;/</span><span style="color:#800000">repository</span><span style="color:#0000ff">&gt;</span>  
+<span style="color:#0000ff">&lt;/</span><span style="color:#800000">repositories</span><span style="color:#0000ff">&gt;</span>
+
+ 
+
+<span style="color:#0000ff">&lt;</span><span style="color:#800000">pluginRepositories</span><span style="color:#0000ff">&gt;</span>
+<span style="color:#0000ff">&lt;</span><span style="color:#800000">pluginRepository</span><span style="color:#0000ff">&gt;</span>  
+
+    <span style="color:#0000ff">&lt;</span><span style="color:#800000">id</span><span style="color:#0000ff">&gt;</span>apache.snapshots<span style="color:#0000ff">&lt;/</span><span style="color:#800000">id</span><span style="color:#0000ff">&gt;</span>  
+    <span style="color:#0000ff">&lt;</span><span style="color:#800000">name</span><span style="color:#0000ff">&gt;</span>Apache Snapshots<span style="color:#0000ff">&lt;/</span><span style="color:#800000">name</span><span style="color:#0000ff">&gt;</span>  
+
+    <span style="color:#0000ff">&lt;</span><span style="color:#800000">url</span><span style="color:#0000ff">&gt;</span><span style="color:#000000"> 
+     http://repository.apache.org/content/groups/snapshots-group/  
+    </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">url</span><span style="color:#0000ff">&gt;</span>  
+
+    <span style="color:#0000ff">&lt;</span><span style="color:#800000">releases</span><span style="color:#0000ff">&gt;</span>  
+        <span style="color:#0000ff">&lt;</span><span style="color:#800000">enabled</span><span style="color:#0000ff">&gt;</span>false<span style="color:#0000ff">&lt;/</span><span style="color:#800000">enabled</span><span style="color:#0000ff">&gt;</span>  
+    <span style="color:#0000ff">&lt;/</span><span style="color:#800000">releases</span><span style="color:#0000ff">&gt;</span>  
+
+    <span style="color:#0000ff">&lt;</span><span style="color:#800000">snapshots</span><span style="color:#0000ff">&gt;</span>  
+        <span style="color:#0000ff">&lt;</span><span style="color:#800000">enabled</span><span style="color:#0000ff">&gt;</span>true<span style="color:#0000ff">&lt;/</span><span style="color:#800000">enabled</span><span style="color:#0000ff">&gt;</span>  
+    <span style="color:#0000ff">&lt;/</span><span style="color:#800000">snapshots</span><span style="color:#0000ff">&gt;</span>  
+
+<span style="color:#0000ff">&lt;/</span><span style="color:#800000">pluginRepository</span><span style="color:#0000ff">&gt;</span> 
+<span style="color:#0000ff">&lt;/</span><span style="color:#800000">pluginRepositories</span><span style="color:#0000ff">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a target="_blank" title="复制代码"><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/copycode.gif" alt="复制代码"></a></span></div>
+</div>
+<p>&nbsp;<strong>3.配置setting.xml</strong>，修改%MAVEN_HOME%\conf\setting.xml(前提是在myeclipse preferences中maven启用本地安装版本并设置用户setting.xml为本地conf下的setting.xml)。</p>
+<p>在&lt;servers&gt;标签中加入</p>
+<div class="cnblogs_code">
+<pre><span style="color:#0000ff">&lt;</span><span style="color:#800000">server</span><span style="color:#0000ff">&gt;</span>  
+       <span style="color:#0000ff">&lt;</span><span style="color:#800000">id</span><span style="color:#0000ff">&gt;</span>tomcat7<span style="color:#0000ff">&lt;/</span><span style="color:#800000">id</span><span style="color:#0000ff">&gt;</span>  
+       <span style="color:#0000ff">&lt;</span><span style="color:#800000">username</span><span style="color:#0000ff">&gt;</span>admin<span style="color:#0000ff">&lt;/</span><span style="color:#800000">username</span><span style="color:#0000ff">&gt;</span>  
+       <span style="color:#0000ff">&lt;</span><span style="color:#800000">password</span><span style="color:#0000ff">&gt;</span>admin<span style="color:#0000ff">&lt;/</span><span style="color:#800000">password</span><span style="color:#0000ff">&gt;</span>  
+<span style="color:#0000ff">&lt;/</span><span style="color:#800000">server</span><span style="color:#0000ff">&gt;</span>  </pre>
+</div>
+<p>注意这里用户名、密码必须为manager-gui角色的用户，这里设置需要与之前tomcat配置时的角色分配对应起来。</p>
+<p><strong>4.启动tomcat</strong></p>
+<p>运行请先启动tomcat，在maven build的goals中输入命令tomcat7:deploy即可发布，或在Run 
+Configurations-&gt;Maven build新建一个命令，base directory里选择你的web 
+project，在Goals栏可填写你所需要的命令，点击Run或者Debug后，MyEclipse会自动下载所需的插件并在Console启动
+Tomcat。</p>
+<p><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23115909-1f5051767bcc413ea30458b50aa6ea58.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="629" width="854"></p>
+<p>&nbsp;</p>
+<p><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23115923-f78708838b764c259afda3e049883ebf.png" alt="" style="display:block; margin-left:auto; margin-right:auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+看看tomcat 下webapp 包里多了什么。我的包名变成了MSSH,我自己没发现，还一个劲找自己的包。。中间走了很多弯路。 
+localhost:8080/MSSH</p>
+<p><strong>5、测试</strong></p>
+<p>打开浏览器，输入<a target="_blank" href="http://localhost:8080/helloworld">http://localhost:8080/helloworld</a>，即可见到发布的Helloworld页面。同时，你也可以在C:\tomcat-7.0.34\webapps看到helloworld工程和helloworld.war包了。</p>
+<p><img src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23115952-9d4aa7518ea8495db4823268c718bf9e.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="354" width="384"></p>
+<p align="center">&nbsp;</p>
+<p align="left">&nbsp;如果点击run后，Console报错，请参见下一篇错误排除</p>
+
+</div>
+
+<div class="share_buttons" id="sharePanel"></div>
+<!--192.168.100.34-->
+<div class="article_next_prev">
+    <li class="prev_article"><span>上一篇：</span><a href="http://blog.csdn.net/zhangpengyu321/article/details/12349977">MyEclipse maven的内置Tomcat</a></li>
+    <li class="next_article"><span>下一篇：</span><a href="http://blog.csdn.net/zhangpengyu321/article/details/12353011">MyEclipse Maven 部署外部Tomcat故障排除</a></li>
+</div>
+
+
+    
+</div>
+<div id="ad_cen">
+<script type="text/javascript">BAIDU_CLB_SLOT_ID = "117306";</script>
+<script type="text/javascript" src="MyEclipse%20maven%20%E5%A4%96%E9%83%A8Tomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/o.js"></script><div id="BAIDU_CLB_SLOT_PS_117306"></div><script charset="utf-8" src="http://cb.baidu.com/ecom?di=117306&amp;fn=BAIDU_CLB_SETJSONADSLOT&amp;tpl=BAIDU_CLB_SETJSONADSLOT&amp;asp_refer=&amp;asp_url=http%3A%2F%2Fblog.csdn.net%2Fzhangpengyu321%2Farticle%2Fdetails%2F12352881&amp;new=9&amp;fv=11&amp;cn=1&amp;if=0&amp;word=asp_url&amp;refer=http%3A%2F%2Fblog.csdn.net%2Fzhangpengyu321%2Farticle%2Fdetails%2F12349977&amp;ready=1&amp;jn=3&amp;lmt=1382524174&amp;csp=1366,768&amp;csn=1366,728&amp;ccd=24&amp;chi=3&amp;cja=true&amp;cpl=28&amp;cmi=65&amp;cce=true&amp;csl=zh-CN&amp;did=1&amp;rt=5&amp;dt=1382524206&amp;c01=0&amp;prt=1382524206194&amp;ps=6057x412&amp;pcs=1349x576&amp;pss=1349x6074&amp;pis=1349x576&amp;cec=UTF-8&amp;dis=0&amp;baidu_id="></script></div></div></div></div></div></body></html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><script src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/log.js" async="" charset="utf-8"></script><script src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/nick.js"></script>
+<title>MyEclipse maven的内置Tomcat - 张鹏宇的专栏 - 博客频道 - CSDN.NET</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="[ERROR] No plugin found for prefix 'tomcat' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/home/zpy/.m2/reposito">
+<script src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ga.js" async="" type="text/javascript"></script><script src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ad.js"></script>
+<link rel="Stylesheet" type="text/css" href="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/style.css">
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/zhangpengyu321/rss/list">
+<link rel="shortcut icon" href="http://blog.csdn.net/favicon.ico">
+<link type="text/css" rel="stylesheet" href="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/default.css">
+<script src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/tracking.js" charset="utf-8" type="text/javascript"></script><script src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/main.js" charset="utf-8" type="text/javascript"></script></head>
+<body>
+<script src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/pub_topnav_2011.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/navtop_2012.css">
+<div class="nav_top_2011">
+<p><span style="color:red;">您还未登录！</span>|<a href="https://passport.csdn.net/account/login" target="_top">登录</a>|<a href="https://passport.csdn.net/account/register" target="_top">注册</a>|<a href="https://passport.csdn.net/help/faq" target="_blank">帮助</a></p><ul>
+<li><a href="http://www.csdn.net/" target="_blank" style="color: red;">首页</a></li>
+<li><a href="http://news.csdn.net/" target="_blank">业界</a></li>
+<li><a href="http://mobile.csdn.net/" target="_blank">移动</a></li>
+<li><a href="http://cloud.csdn.net/" target="_blank">云计算</a></li>
+<li><a href="http://sd.csdn.net/" target="_blank">研发</a></li>
+<li><a href="http://bbs.csdn.net/" target="_blank">论坛</a></li>
+<li><a href="http://blog.csdn.net/" target="_blank">博客</a></li>
+<li><a href="http://download.csdn.net/" target="_blank">下载</a></li>
+<li class="more"><h2 id="topnav_btnmore" onclick="showNavMore(this)"><a href="javascript:void(0);">更多</a></h2>
+<div id="topnav_hidlist">
+<iframe name="nav_frm" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/a.htm" frameborder="no" height="178" scrolling="no" width="92"></iframe>
+</div>
+</li>
+</ul>
+</div>
+
+
+<div id="container">
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h1><a href="http://blog.csdn.net/zhangpengyu321">张鹏宇的专栏</a></h1>
+            <h2>You can't use Ctrl+c to get the word</h2>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg"></div>
+    <div class="navigator">
+        <ul>
+            <li id="btnContents"><a href="http://blog.csdn.net/zhangpengyu321?viewmode=contents"><span><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ico_list.gif">目录视图</span></a></li>
+            <li id="btnView"><a href="http://blog.csdn.net/zhangpengyu321?viewmode=list"><span><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ico_summary.gif">摘要视图</span></a></li>
+            <li id="btnRss"><a href="http://blog.csdn.net/zhangpengyu321/rss/list"><span><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ico_rss.gif">订阅</span></a></li>
+</ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "zhangpengyu321";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/zhangpengyu321";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";
+</script>
+
+<div id="body">
+<div id="main">
+<div class="main">
+<div class="notice tracking-ad" data-mod="popu_3"> 
+
+<a href="http://www.csdn.net/article/2013-10-15/2817185" target="_blank">
+<font color="blue">IT俱乐部创始人杜鸿飞专访</font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://surveies.csdn.net/survey/comein/613" target="_blank"><font color="red">MDCC2013中国移动开发者大会社区赠票申请 
+</font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/csdnproduct/article/details/12423189" target="_blank">
+<font color="blue">Tag功能介绍—我们为什么打Tag 
+ </font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/11975399" target="_blank">
+<font color="red">“说说家乡的互联网”主题有奖征文
+ </font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://newsletter.csdn.net/show_book/show_book_list?type=5" target="_blank">
+<font color="red">订阅CSDN社区周刊，及时了解社区精华内容
+ </font></a>
+
+</div><link href="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/comment1.css" type="text/css" rel="stylesheet">
+<link href="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/style1.css" type="text/css" rel="stylesheet">
+
+<div id="article_details" class="details">
+    <div class="article_title">
+    <span class="ico ico_type_Original"></span>
+    <h3>
+        <span class="link_title"><a href="http://blog.csdn.net/zhangpengyu321/article/details/12349977">
+        MyEclipse maven的内置Tomcat
+        </a></span>
+    </h3>
+</div>
+
+        
+    <div class="article_manage">
+        <span class="link_categories">
+        分类：
+            <a href="http://blog.csdn.net/zhangpengyu321/article/category/1425896">java Web</a> 
+        </span>
+    <span class="link_postdate">2013-10-06 17:16</span>
+    <span class="link_view" title="阅读次数">29人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="#comments">评论</a>(0)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:collectArticle('MyEclipse maven的内置Tomcat','12349977');return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="#report" onclick="javascript:report(12349977,2);return false;" title="举报">举报</a></span>
+    
+</div>
+
+
+    
+<div id="article_content" class="article_content">
+
+<p>[ERROR] No plugin found for prefix 'tomcat' in the current project 
+and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] 
+available from the repositories [local (/home/zpy/.m2/repository), 
+apache.snapshots 
+(http://repository.apache.org/content/groups/snapshots-group/),
+ central (http://repo.maven.apache.org/maven2)] -&gt; [Help <br>
+</p>
+<p><br>
+</p>
+<p>一个技术错误在百度上有很多种解答，这些解答的人10个只有一个会考虑到各种因素，谁都可以写教程写技术博客。也正是这些人给后来者造成了很大的阻碍，有人说，Web特别复杂，一个小问题都能弄一天，web程序员太苦逼了。</p>
+<p>怎么能不苦逼呢，如上这个小问题我查了几个小时，都是因为一个教程，说在配置Maven内置tomcat的时候要把"Off Line” 
+勾上。才造成了系统找不到也不会自动下载。实际上第一次配置是不能点离线的。我只能说写那个教程的人太渣了。 
+搞软件工程的人，谁都知道导致项目死掉的原因太多了，希望写教程的人们能多考虑一些，看教程的也不要这么依赖。</p>
+<p>下面说正题。</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p>1.Myeclipse配置maven插件</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Myeclipse 
+10.0本身已经内置了maven的插件，不需要单独安装，唯一需要修改的是Myeclipse中使用的maven版本，不管Myeclipse使用的是
+哪个版本，咱们都统一改成刚才下载到本地安装的版本，方法是：</p>
+<p>1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+菜单依次进入：windows–&gt;Ppreferences–&gt;MyEclipse–&gt;Mave4MyEclipse–&gt; 
+Installations</p>
+<p>2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 点击Add…，选择C:\opensource\maven-3.0.4目标</p>
+<p><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23111657-6fc109ece651475496de9373c136ec02.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="438" width="649"></p>
+<p align="center">&nbsp;</p>
+<p>3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修改setting.xml文件</p>
+<p><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23111523-0c1e47956e294ef9a7184341b13b8c98.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="459" width="649"></p>
+<p align="center">&nbsp;</p>
+<p>到此，MyEclipse的maven环境配置完成。</p>
+<p>2.创建Maven项目</p>
+<p>1）点击File-&gt;New-&gt;Project…</p>
+<p>2）选择Maven Project</p>
+<p>3）使用默认的工作空间，点击Next</p>
+<p><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23111600-7ef6b24dcc274140a5350d97d284fa5b.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="399" width="648"></p>
+<p align="center">&nbsp;</p>
+<p>4）选择模板，一定要选择maven-archetype-webapp，这表明是在创建一个web工程，如果要创建普通java工程，则选择
+maven-archetype-quickstart。点击下一步，MyEclipse会自动下载相应的模板至repository目录，本例为用户目
+录下.m2/repository下</p>
+<p><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23111625-8d35476875a3458599769bd1ab26070d.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="595" width="633"></p>
+<p align="center">&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5）填写项目的相关信息，点击完成。</p>
+<p><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23111723-dc9825a7853c4dc3babad7c7430f17b6.PNG" alt="" style="display:block; margin-left:auto; margin-right:auto" height="603" width="642"></p>
+<p align="center">&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6）得到如下的目录结构。</p>
+<p><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23111807-4fa42be2001c4703b6624dcdc9e4a58a.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="490" width="245"></p>
+<p align="center">&nbsp;</p>
+<p>3.项目运行</p>
+<p>传统的方法，我们需要先去下载一个tomcat到本地，然后将项目发布到该tomcat中。使用maven后，tomcat都不用下载了，可以使用maven的内嵌tomcat，很方便，方法如下：</p>
+<p>&nbsp;1）右击项目，打开debug配置，依次打开菜单：Debug-&gt;Configurations</p>
+<p><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23111905-b74e86fc2b3e4a968fc5a57ad399d208.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="631" width="790"></p>
+<p align="center">&nbsp;</p>
+<p align="left"><span style="color:#ff0000">注意第一次运行，一定不要选择offline，否则本地找不到tomcat-maven-plugin，依然会报错找不到tomcat-maven-plugin的错误。Tomcat-maven-plugin只需下载一次，以后可以以offline的方式运行</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2）点击Debug后，Console在下载一系列所需要的插件后，启动内嵌的tomcat运行</p>
+<p>&nbsp;<img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23112000-d706ef539a8440a2b657d1be6aeb69ea.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="316" width="907"></p>
+<p>3）此时在浏览器窗口，输入<a target="_blank" href="http://localhost:8080/helloworld">http://localhost:8080/helloworld</a>，即可看到如下显示，表示项目构建成功。</p>
+<p align="center">&nbsp;</p>
+<p><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/23112040-ac195320757f46359d1dc89ba5514043.png" alt="" style="display:block; margin-left:auto; margin-right:auto" height="195" width="621"></p>
+<br>
+
+</div>
+
+<div class="share_buttons" id="sharePanel"><span>分享到：</span> <a name="sina" class="share_sina" title="分享到新浪微博"></a><a name="qq" class="share_qq" title="分享到腾讯微博"></a></div>
+<!--192.168.100.34-->
+<div class="article_next_prev">
+    <li class="prev_article"><span>上一篇：</span><a href="http://blog.csdn.net/zhangpengyu321/article/details/12176807">maven——Myeclipse下通过maven管理项目</a></li>
+    <li class="next_article"><span>下一篇：</span><a href="http://blog.csdn.net/zhangpengyu321/article/details/12352881">MyEclipse maven 外部Tomcat</a></li>
+</div>
+
+
+    
+</div>
+<div id="ad_cen">
+<script type="text/javascript">BAIDU_CLB_SLOT_ID = "117306";</script>
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/o.js"></script><div id="BAIDU_CLB_SLOT_PS_117306"></div><script charset="utf-8" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ecom"></script>
+</div>
+<script type="text/javascript">
+    //new Ad(4, 'ad_cen');
+</script>
+<div id="comment_title" class="panel_head">查看评论<a name="comments"></a></div>
+<div id="comment_list"><br>&nbsp;&nbsp;暂无评论<br><br><div class="clear"></div></div>
+<div id="comment_bar"></div>
+<div id="comment_form"><div class="guest_link">您还没有登录,请<a href="javascript:void(0);" onclick="javascript:csdn.showLogin(function (dat) {js_logined(dat.data.userName);});">[登录]</a>或<a href="http://passport.csdn.net/account/register?from=http%3A%2F%2Fblog.csdn.net%2Fzhangpengyu321%2Farticle%2Fdetails%2F12349977">[注册]</a></div></div>
+<div class="announce">* 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+<script type="text/javascript">
+    var fileName = '12349977';
+    var commentscount = 0;
+    var islock = false
+</script>
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/comment.js"></script>
+<div id="ad_bot"><iframe src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ad.htm" style="border-width: 0px; overflow: hidden; width: 738px; height: 170px;" id="ad_frm_0" frameborder="0" scrolling="no"></iframe></div>
+<script type="text/javascript">
+    new Ad(5, 'ad_bot');
+</script>
+<div id="report_dialog"></div>
+
+<div id="d-top" style="display:none;">
+<a id="d-top-a" href="#" title="回到顶部">
+<img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/top.png" alt="TOP"></a>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var d_top=$('#d-top');
+        document.onscroll=function(){
+            var scrTop=(document.body.scrollTop||document.documentElement.scrollTop);
+            if(scrTop>500){
+                d_top.show();
+            }else{
+                d_top.hide();
+            }
+        }
+        $('#d-top-a').click(function(){
+            scrollTo(0,0);
+            this.blur();
+            return false;
+        });
+    });
+  
+</script>
+
+<div class="clear"></div>
+</div>
+</div>
+
+<div id="side">
+<div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/zhangpengyu321" target="_blank">
+    <img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/1_zhangpengyu321.jpg" title="访问我的空间" style="max-width:90%">
+    </a>
+    <br>
+    <span><a href="http://my.csdn.net/zhangpengyu321" class="user_name" target="_blank">zhangpengyu321</a></span>
+</div>
+<div class="interact">
+<a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+<a href="javascript:void(0);" class="letter" onclick="loginto(1)" title="[发私信]"></a>
+</div>
+<div id="blog_medal">
+<div id="bms_box"><a href="http://medal.blog.csdn.net/allmedal.aspx" target="_blank"><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/holdon_s.gif" onmouseover="m_over_m(this,0)" onmouseout="m_out_m()" alt=""></a></div></div>
+<ul id="blog_rank">
+    <li>访问：<span>5638次</span></li>
+    <li>积分：<span>823分</span></li>
+    <li>排名：<span>第15269名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>80篇</span></li>
+    <li>转载：<span>2篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>0条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" class="blogsearch" title="请输入关键字" type="text"></span>
+        <input id="btnSubmit" value="搜索" title="search in blog" type="submit">
+        <input name="q" id="inputQ" type="hidden">
+        <input name="t" value="blog" type="hidden">
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1280962">算法</a><span>(30)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1312862">Android</a><span>(8)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1418341">Linux</a><span>(11)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1425895">Java</a><span>(4)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1425896">java Web</a><span>(19)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1428712">html5</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1436699">ruby</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1418489">读书笔记</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1428556">第二人生</a><span>(1)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1431216">月计划&amp;总结</a><span>(1)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1431215">周计划&amp;总结</a><span>(5)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1617775">网络爬虫</a><span>(1)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/category/1695547">数据库</a><span>(1)</span>
+</li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list"><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2013/10">2013年10月</a><span>(9)</span></li><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2013/09">2013年09月</a><span>(8)</span></li><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2013/08">2013年08月</a><span>(14)</span></li><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2013/07">2013年07月</a><span>(3)</span></li><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2013/06">2013年06月</a><span>(26)</span></li><span class="hidelist" style="display:none;"><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2013/05">2013年05月</a><span>(19)</span></li><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2013/03">2013年03月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2012/12">2012年12月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/zhangpengyu321/article/month/2012/11">2012年11月</a><span>(1)</span></li></span><div id="archive_list_button" class="list_closed">展开</div></div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head"><span>阅读排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8966765" title="再谈互联网平台化-糗百成功案例">再谈互联网平台化-糗百成功案例</a><span>(213)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8934767" title="黄金连分数 -第四届蓝桥杯java B组">黄金连分数 -第四届蓝桥杯java B组</a><span>(196)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8931363" title="振兴中华_第四届蓝桥杯选拔赛java B组">振兴中华_第四届蓝桥杯选拔赛java B组</a><span>(176)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8953420" title="错误票据-第四届蓝桥杯java B组">错误票据-第四届蓝桥杯java B组</a><span>(158)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9123481" title="eclipse中monokai插件的安装">eclipse中monokai插件的安装</a><span>(155)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8964803" title="带分数 - 第四界蓝桥杯java组">带分数 - 第四界蓝桥杯java组</a><span>(142)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8954609" title="幸运数 - 第四届蓝桥杯java B组">幸运数 - 第四届蓝桥杯java B组</a><span>(133)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8920422" title="世纪末的星期——第四届蓝桥杯选拔赛java B组">世纪末的星期——第四届蓝桥杯选拔赛java B组</a><span>(130)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8988732" title="数量周期-蓝桥杯">数量周期-蓝桥杯</a><span>(110)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/8946703" title="牛顿迭代法求高精度开方">牛顿迭代法求高精度开方</a><span>(105)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9136283" title="Android调用相机,相册">Android调用相机,相册</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9867391" title="grub详细学习">grub详细学习</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9925499" title="集合框架">集合框架</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9942345" title="XP引导Ubuntu">XP引导Ubuntu</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9962677" title="封装 继承 多态">封装 继承 多态</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9963225" title="抽象类 接口">抽象类 接口</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9977703" title="Ants">Ants</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9982359" title="java中多重循环的简化">java中多重循环的简化</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9999113" title="java多线程runnable 和Thread到购票实例">java多线程runnable 和Thread到购票实例</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/zhangpengyu321/article/details/9867187" title="由win7 ubuntu引导到bios">由win7 ubuntu引导到bios</a><span>(0)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend"><iframe src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ad_002.htm" style="border-width: 0px; overflow: hidden; width: 194px; height: 298px;" id="ad_frm_1" frameborder="0" scrolling="no"></iframe></ul>
+</div>
+<script type="text/javascript">
+ new Ad(12, 'ad_commend');
+</script></div>
+<div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+</div>
+
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/newblog.js"></script>
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/showblogmedal.js"></script>
+
+<script type="text/javascript">
+document.write('<script type="text/javascript" src="http://csdnimg.cn/pubfooter/js/publib_footer.js?' + Math.floor(new Date()/120000).toString(36) + '="></'+'script>');
+</script><script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/publib_footer.js"></script><link rel="stylesheet" type="text/css" href="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/pub_footer_2012.css"><div id="pub_footerall" class="pub_footerall"><dl><dt></dt> <dd><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a>|<a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a>|<a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a>|<a href="http://www.csdn.net/company/account.html" target="_blank">银行汇款帐号</a>|<a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a>|<a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a>|<a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a>|<a href="mailto:webmaster@csdn.net">问题报告</a></dd><dd><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2355263776&amp;site=qq&amp;menu=yes" target="_blank" class="qq">QQ客服</a> <a href="http://e.weibo.com/csdnsupport/profile" target="_blank" class="weibo">微博客服</a> <a href="http://bbs.csdn.net/forums/Service" target="_blank" class="online">论坛反馈</a> <a href="mailto:webmaster@csdn.net" class="email">联系邮箱：webmaster@csdn.net</a> <span class="phone">服务热线：400-600-2320</span></dd><dd>京&nbsp;ICP&nbsp;证&nbsp;070598&nbsp;号</dd><dd>北京创新乐知信息技术有限公司 版权所有</dd><dd>世纪乐知(北京)网络技术有限公司 提供技术支持</dd><dd>江苏乐知网络技术有限公司 提供商务支持</dd><dd>Copyright © 1999-2012, CSDN.NET, All Rights Reserved&nbsp;<a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div><script id="noticeScript" type="text/javascript" btnid="header_notice_num" wrapid="note1" count="5" subcount="5" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/notify.js"></script>
+
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script><img src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/pv.txt" border="0" height="0" width="0">
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/counter.js"></script>
+
+
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ad-blog.js"></script><script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ad-ms594.js"></script>
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/ad-ms601.js"></script>
+
+
+<script type="text/javascript" src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/count.js"></script>
+
+</div>
+
+<iframe src="MyEclipse%20maven%E7%9A%84%E5%86%85%E7%BD%AETomcat%20-%20%E5%BC%A0%E9%B9%8F%E5%AE%87%E7%9A%84%E4%B8%93%E6%A0%8F%20-%20%E5%8D%9A%E5%AE%A2%E9%A2%91%E9%81%93%20-%20CSDN.NET_files/log.swf" style="width: 1px; height: 1px; position: absolute; visibility: hidden;"></iframe></body></html>

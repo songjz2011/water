@@ -53,7 +53,6 @@
 
 
 
-
 	<dependencyManagement>
 		<dependencies>
 			<!-- spring -->
@@ -400,5 +399,6 @@
 	<modules>
 		<module>../util</module>
 		<module>../web</module>
+		<module>../spring-scope</module>
 	</modules>
 </project>
