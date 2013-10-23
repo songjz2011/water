@@ -24,5 +24,13 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- util -->
+		<dependency>
+			<groupId>com.web.things</groupId>
+			<artifactId>util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
 	</dependencies>
 </project>
