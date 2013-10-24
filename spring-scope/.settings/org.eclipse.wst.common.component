@@ -7,9 +7,6 @@
         <dependent-module archiveName="springioc-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/springioc/springioc">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="util-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/util/util">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="spring-scope"/>
         <property name="java-output-path" value="/spring-scope/target/classes"/>
     </wb-module>

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.web.things.springioc.FirstIoc;
+import com.web.things.springioc.factory.SpringFactory;
+
 /**
  * <pre>
  * 用户登陆controller
@@ -21,6 +24,8 @@ public class LoginController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		FirstIoc bean = SpringFactory.getBean("firstIoc1", FirstIoc.class);
+		System.out.println("欧asdfs request = " + bean);
 		response.sendRedirect("login.jsp");
 	}
 

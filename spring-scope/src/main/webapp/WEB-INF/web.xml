@@ -7,6 +7,7 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
@@ -19,5 +20,12 @@
 		<servlet-name>login</servlet-name>
 		<url-pattern>/login.do</url-pattern>
 	</servlet-mapping>
-	
+	<!-- 
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+			<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+	-->
 </web-app>
