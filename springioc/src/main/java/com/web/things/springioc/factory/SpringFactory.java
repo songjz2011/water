@@ -29,4 +29,26 @@ public class SpringFactory {
 		return context.getBean(id, requiredType);
 	}
 
+	/**
+	 * 根据对象 默认定义的Id（为对象名称，首字母为小写），获取对象
+	 * @param requiredType
+	 * @return
+	 */
+	public static <T> T getBeanByDefaultId(Class<T> requiredType) {
+		String id = getDefaultId(requiredType);
+		return getBean(id, requiredType);
+	}
+
+	/**
+	 * 获取在spring容器中，默认定义的id:为对象名称（首字母为小写）
+	 * 
+	 * @param cl
+	 * @return
+	 */
+	private static String getDefaultId(Class<?> cl) {
+		String name = cl.getSimpleName();
+		name = Character.toLowerCase(name.charAt(0)) + name.substring(1);
+		return name;
+	}
+
 }
