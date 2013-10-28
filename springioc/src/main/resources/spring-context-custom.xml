@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<!-- 自定义 scope 生效逻辑 开始 -->
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+		<property name="scopes">
+			<map>
+				<entry key="customScopeTest">
+					<bean class="com.web.things.springioc.CustomScope" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<!-- 自定义 scope 生效逻辑 结束 -->
+
+
+	<!-- The default per-phase timeout is 30 seconds -->
+	<bean id="lifecycleProcessor"
+		class="org.springframework.context.support.DefaultLifecycleProcessor">
+		<!-- timeout value in milliseconds -->
+		<property name="timeoutPerShutdownPhase" value="0" />
+	</bean>
+
+
+</beans>

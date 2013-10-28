@@ -14,7 +14,7 @@ public class CustomScope implements Scope {
 	}
 
 	public void registerDestructionCallback(String name, Runnable callback) {
-		
+
 	}
 
 	public Object resolveContextualObject(String key) {
@@ -22,7 +22,7 @@ public class CustomScope implements Scope {
 	}
 
 	public String getConversationId() {
-		return null;
+		return "customScopeTest";
 	}
 
 }

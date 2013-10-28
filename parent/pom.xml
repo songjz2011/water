@@ -22,37 +22,6 @@
 		<jdk.version>1.6</jdk.version>
 	</properties>
 
-	<!-- 指定额外的仓库，因为有的 插件不是放在maven的仓库中 -->
-	
-	<!-- tomcat 插件仓库，不指定则下载不了相应插件 -->
-	<repositories>
-		<repository>
-			<id>people.apache.snapshots</id>
-			<url>http://repository.apache.org/content/groups/snapshots-group/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>apache.snapshots</id>
-			<name>Apache Snapshots</name>
-			<url>http://repository.apache.org/content/groups/snapshots-group/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
-
-
 	<dependencyManagement>
 		<dependencies>
 			<!-- spring -->
@@ -215,6 +184,7 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.0</version>
 					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
 						<source>${jdk.version}</source>
 						<target>${jdk.version}</target>
 						<showWarnings>true</showWarnings>

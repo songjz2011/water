@@ -18,6 +18,34 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<!-- 指定额外的仓库，因为有的 插件不是放在maven的仓库中 -->
+	<!-- tomcat 插件仓库，不指定则下载不了相应插件 -->
+	<repositories>
+		<repository>
+			<id>people.apache.snapshots</id>
+			<url>http://repository.apache.org/content/groups/snapshots-group/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>apache.snapshots</id>
+			<name>Apache Snapshots</name>
+			<url>http://repository.apache.org/content/groups/snapshots-group/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -41,12 +69,8 @@
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
-				<!-- 
-				<configuration>
-					<url>http://localhost:8080/manager/html</url>
-					<server>tomcat</server>
-				</configuration>
-				-->
+				<!-- <configuration> <url>http://localhost:8080/manager/html</url> <server>tomcat</server> 
+					</configuration> -->
 			</plugin>
 		</plugins>
 	</build>
