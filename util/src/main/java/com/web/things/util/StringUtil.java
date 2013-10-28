@@ -24,16 +24,16 @@ public class StringUtil {
 
 	/**
 	 * 若字符串为空（参见isEmpty方法），返回""；<br>
-	 * 若不为空，则返回自身
+	 * 若不为空，则返回自身(去除前后空格)
 	 * 
 	 * @param str
 	 * @return
 	 */
-	public static String killNull(String str) {
+	public static String trim(String str) {
 		if (isEmpty(str)) {
 			return "";
 		}
-		return str;
+		return str.trim();
 	}
 
 	/**
@@ -73,10 +73,10 @@ public class StringUtil {
 	 * @return
 	 */
 	public static boolean isTrue(String str) {
-		if(isEmpty(str)) {
+		if (isEmpty(str)) {
 			return false;
 		}
-		return (str.equals("1") || str.trim().equalsIgnoreCase("true"));
+		return "1".equals(str.trim()) || "true".equals(str.trim());
 	}
 
 }

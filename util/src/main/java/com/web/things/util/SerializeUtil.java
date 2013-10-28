@@ -23,7 +23,6 @@ public class SerializeUtil {
 	 * 
 	 * @param object
 	 * @return
-	 * @throws IOException
 	 */
 	public static byte[] serializeObject(Object object) {
 		byte[] result = null;
@@ -39,8 +38,7 @@ public class SerializeUtil {
 		} catch (Exception e) {
 			LoggerUtil.error(SerializeUtil.class, e.getMessage());
 		} finally {
-			closeOutputStream(objectStream);
-			closeOutputStream(byteStream);
+			closeOutputStream(objectStream, byteStream);
 		}
 		return result;
 	}
@@ -50,8 +48,6 @@ public class SerializeUtil {
 	 * 
 	 * @param buf
 	 * @return
-	 * @throws IOException
-	 * @throws ClassNotFoundException
 	 */
 	public static Object deSerializeObject(byte[] buf) {
 		Object result = null;
@@ -64,8 +60,7 @@ public class SerializeUtil {
 		} catch (Exception e) {
 			LoggerUtil.error(SerializeUtil.class, e.getMessage());
 		} finally {
-			closeInputStream(objectStream);
-			closeInputStream(byteStream);
+			closeInputStream(objectStream, byteStream);
 		}
 		return result;
 	}
@@ -73,30 +68,34 @@ public class SerializeUtil {
 	/**
 	 * 关闭输出流
 	 * 
-	 * @param stream
+	 * @param streams
 	 */
-	private static void closeOutputStream(OutputStream stream) {
-		try {
-			if (stream != null) {
-				stream.close();
+	private static void closeOutputStream(OutputStream... streams) {
+		for (OutputStream stream : streams) {
+			try {
+				if (stream != null) {
+					stream.close();
+				}
+			} catch (IOException e) {
+				LoggerUtil.error(SerializeUtil.class, e.getMessage());
 			}
-		} catch (IOException e) {
-			LoggerUtil.error(SerializeUtil.class, e.getMessage());
 		}
 	}
 
 	/**
 	 * 关闭输入流
 	 * 
-	 * @param stream
+	 * @param streams
 	 */
-	private static void closeInputStream(InputStream stream) {
-		try {
-			if (stream != null) {
-				stream.close();
+	private static void closeInputStream(InputStream... streams) {
+		for (InputStream stream : streams) {
+			try {
+				if (stream != null) {
+					stream.close();
+				}
+			} catch (IOException e) {
+				LoggerUtil.error(SerializeUtil.class, e.getMessage());
 			}
-		} catch (IOException e) {
-			LoggerUtil.error(SerializeUtil.class, e.getMessage());
 		}
 	}
 

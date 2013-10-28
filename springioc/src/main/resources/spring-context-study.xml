@@ -155,11 +155,22 @@
 	</bean>
 	<bean id="replacementComputeValue" class="com.web.things.springioc.ReplacementComputeValue" />
 
-	<!-- spring Initialization callbacks -->
+	<!-- spring Initialization and destroy callbacks -->
 	<bean id="objectContainerInitCallbacks" class="com.web.things.springioc.ObjectContainerInitCallbacks"
 		init-method="init" />
 	<bean id="objectContainerDestroyCallbacks"
 		class="com.web.things.springioc.ObjectContainerDestroyCallbacks"
 		destroy-method="destroyMethod" />
+
+	<!-- 抽象类 及 实现的spring 测试 -->
+	<bean id="abstractBean" class="com.web.things.springioc.AbstractBean"
+		abstract="true">
+		<property name="name" value="张三 抽象类" />
+		<property name="age" value="23" />
+	</bean>
+	<bean id="abstractBeanImp" class="com.web.things.springioc.AbstractBeanImp"
+		parent="abstractBean">
+		<property name="name" value="李四 抽象实现类" />
+	</bean>
 
 </beans>

@@ -24,5 +24,7 @@
 		<property name="timeoutPerShutdownPhase" value="0" />
 	</bean>
 
+	<!-- 自定义 BeanPostProcessor -->
+	<bean class="com.web.things.springioc.InstantiationTracingBeanPostProcessor" />
 
 </beans>

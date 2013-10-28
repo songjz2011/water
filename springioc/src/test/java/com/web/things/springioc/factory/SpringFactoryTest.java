@@ -13,6 +13,8 @@ import java.util.Set;
 import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
+import com.web.things.springioc.AbstractBean;
+import com.web.things.springioc.AbstractBeanImp;
 import com.web.things.springioc.CircularDependencyClass1;
 import com.web.things.springioc.CircularDependencyClass2;
 import com.web.things.springioc.ClientService;
@@ -73,7 +75,7 @@ public class SpringFactoryTest {
 		// System.out.println("FirstIoc.prototype1 : " + ioc1.getPrototype());
 		assertEquals(ioc.getPrototype(), ioc1.getPrototype());
 	}
-	
+
 	@Test(expected = IllegalStateException.class)
 	public void scope_request_without_web_enviroment() {
 		SpringFactory.getBean("firstIocForScopeRequest", FirstIoc.class);
@@ -232,5 +234,11 @@ public class SpringFactoryTest {
 		MyValueCalculator calculator = SpringFactory.getBean("myValueCalculator",
 				MyValueCalculator.class);
 		calculator.computeValue("我是谁");
+	}
+
+	@Test
+	public void abstract_bean_test() {
+		AbstractBean bean = SpringFactory.getBeanByDefaultId(AbstractBeanImp.class);
+		System.out.println(bean.getName() + "--" + bean.getAge());
 	}
 }
