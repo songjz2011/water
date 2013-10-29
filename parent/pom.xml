@@ -141,21 +141,18 @@
 				<artifactId>log4j</artifactId>
 				<version>${log4j.version}</version>
 			</dependency>
-
 			<!-- slf4j -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
-
 			<!-- slf4j-log4j绑定 -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
-
 			<!-- common-logging 实际调用 slf4j -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -370,5 +367,6 @@
 		<module>../util</module>
 		<module>../web</module>
 		<module>../spring-scope</module>
+		<module>../springioc</module>
 	</modules>
 </project>

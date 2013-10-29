@@ -3,6 +3,7 @@ package com.web.things.springioc;
 import org.junit.Before;
 
 import com.web.things.springioc.factory.SpringFactory;
+import com.web.things.util.LoggerUtil;
 
 public class ObjectContainerDestroyCallbacksTest {
 
@@ -11,7 +12,7 @@ public class ObjectContainerDestroyCallbacksTest {
 	@Before
 	public void beforeEachMethod() {
 		bean = SpringFactory.getBeanByDefaultId(ObjectContainerDestroyCallbacks.class);
-		System.out.println(bean);
+		LoggerUtil.info(this.getClass(), bean.toString());
 	}
 	
 
