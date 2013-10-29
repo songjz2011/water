@@ -35,6 +35,11 @@ public class TableColumnMeta {
 	 */
 	private String nullFlag;
 
+	/**
+	 * 所属table的名称
+	 */
+	private String tableName;
+
 	public String getName() {
 		return name;
 	}
@@ -73,6 +78,14 @@ public class TableColumnMeta {
 
 	public void setNullFlag(String nullFlag) {
 		this.nullFlag = nullFlag;
+	}
+
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
 	}
 
 }

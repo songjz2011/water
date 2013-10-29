@@ -21,6 +21,11 @@ public class TableMeta {
 	 * 表注释
 	 */
 	private String remark;
+	
+	/**
+	 * 类型（TABLE、等） 
+	 */
+	private String type;
 
 	/**
 	 * 表的列
@@ -49,6 +54,14 @@ public class TableMeta {
 
 	public void setColumnList(List<TableColumnMeta> columnList) {
 		this.columnList = columnList;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

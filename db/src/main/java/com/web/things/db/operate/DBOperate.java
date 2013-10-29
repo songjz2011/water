@@ -19,7 +19,7 @@ import com.web.things.util.LoggerUtil;
  * @author songjz
  * @time 2013年10月29日
  */
-public class DBOperate {
+public class DBOperate extends AbstractDBOpreate {
 	/**
 	 * <pre>
 	 * 说明备注：
@@ -33,12 +33,7 @@ public class DBOperate {
 	 * <pre>
 	 */
 
-	/**
-	 * 获取配置的数据用户中，所有的表说明
-	 * 
-	 * @return
-	 */
-	public List<TableMeta> getTableMeta() {
+	public List<TableMeta> getAllTableMeta() {
 		List<TableMeta> tableList = new LinkedList<TableMeta>();
 		DBService service = DBFactory.getDBService();
 		Connection conn = null;
@@ -49,10 +44,8 @@ public class DBOperate {
 			String user = meta.getUserName();
 			rs = meta.getTables(conn.getCatalog(), user, "%", new String[] { "TABLE" });
 			while (rs.next()) {
-				TableMeta tableMeta = new TableMeta();
-				String tableName = rs.getString("TABLE_NAME");
-				tableMeta.setName(tableName);
-				tableMeta.setRemark(rs.getString("REMARKS"));
+				TableMeta tableMeta = buildTableMeta(rs);
+				String tableName = tableMeta.getName();
 				tableMeta.setColumnList(getTableColumnList(service, meta, tableName, user));
 				tableList.add(tableMeta);
 			}
@@ -64,12 +57,6 @@ public class DBOperate {
 		return tableList;
 	}
 
-	/**
-	 * 获取表的说明
-	 * 
-	 * @param tableName
-	 * @return
-	 */
 	public TableMeta getTableMeta(String tableName) {
 		DBService service = DBFactory.getDBService();
 		TableMeta tableMeta = null;
@@ -81,9 +68,7 @@ public class DBOperate {
 			String user = meta.getUserName();
 			rs = meta.getTables(conn.getCatalog(), user, tableName, new String[] { "TABLE" });
 			if (rs.next()) {
-				tableMeta = new TableMeta();
-				tableMeta.setName(rs.getString("TABLE_NAME"));
-				tableMeta.setRemark(rs.getString("REMARKS"));
+				tableMeta = buildTableMeta(rs);
 				tableMeta.setColumnList(getTableColumnList(service, meta, tableName, user));
 			}
 		} catch (Exception e) {
@@ -91,6 +76,21 @@ public class DBOperate {
 		} finally {
 			service.close(rs, null, conn);
 		}
+		return tableMeta;
+	}
+
+	/**
+	 * 构造TableMeta
+	 * 
+	 * @param rs
+	 * @return
+	 * @throws Exception
+	 */
+	private TableMeta buildTableMeta(ResultSet rs) throws Exception {
+		TableMeta tableMeta = new TableMeta();
+		tableMeta.setName(rs.getString("TABLE_NAME"));
+		tableMeta.setRemark(rs.getString("REMARKS"));
+		tableMeta.setType(rs.getString("TABLE_TYPE"));
 		return tableMeta;
 	}
 
@@ -116,6 +116,7 @@ public class DBOperate {
 				column.setType(rs.getString("TYPE_NAME"));
 				column.setSize(rs.getString("COLUMN_SIZE"));
 				column.setNullFlag(rs.getString("IS_NULLABLE"));
+				column.setTableName(tableName);
 				columnList.add(column);
 			}
 		} catch (Exception e) {
@@ -124,5 +125,9 @@ public class DBOperate {
 			service.close(rs);
 		}
 		return columnList;
+	}
+
+	public static void main(String[] args) {
+		new DBOperate().getAllTableMeta();
 	}
 }
