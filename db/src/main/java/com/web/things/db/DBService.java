@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public interface DBService {
 	void setProperties(Properties properties);
-
+	
 	Connection getConnection();
 	
 	void rollBack(Connection conn);

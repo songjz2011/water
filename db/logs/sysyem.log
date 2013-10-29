@@ -122,3 +122,57 @@
         at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
         at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
         at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+2013-10-29 15:49:56,689-[TS] ERROR main com.web.things.db.operate.DBOperate - 
+    java.sql.SQLException: 无效的列索引
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+        at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:379)
+        at com.web.things.db.operate.DBOperate.getTableMeta(DBOperate.java:20)
+        at com.web.things.db.operate.DBOperate.main(DBOperate.java:36)
+2013-10-29 15:50:16,866-[TS] ERROR main com.web.things.db.operate.DBOperate - 
+    java.sql.SQLException: 无效的列索引
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+        at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:379)
+        at com.web.things.db.operate.DBOperate.getTableMeta(DBOperate.java:20)
+        at com.web.things.db.operate.DBOperate.main(DBOperate.java:36)
+2013-10-29 16:34:19,203-[TS] ERROR main com.web.things.db.operate.DBOperate - 
+    java.sql.SQLException: 列名无效
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+        at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3296)
+        at oracle.jdbc.driver.OracleResultSetImpl.findColumn(OracleResultSetImpl.java:1914)
+        at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:1515)
+        at com.web.things.db.operate.DBOperate.getTableMeta(DBOperate.java:38)
+        at com.web.things.db.operate.DBOperate.main(DBOperate.java:48)
+2013-10-29 16:34:31,980-[TS] ERROR main com.web.things.db.operate.DBOperate - 
+    java.sql.SQLException: 列名无效
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+        at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3296)
+        at oracle.jdbc.driver.OracleResultSetImpl.findColumn(OracleResultSetImpl.java:1914)
+        at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:1515)
+        at com.web.things.db.operate.DBOperate.getTableMeta(DBOperate.java:38)
+        at com.web.things.db.operate.DBOperate.main(DBOperate.java:48)
+2013-10-29 16:34:46,719-[TS] ERROR main com.web.things.db.operate.DBOperate - 
+    java.sql.SQLException: 列名无效
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+        at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3296)
+        at oracle.jdbc.driver.OracleResultSetImpl.findColumn(OracleResultSetImpl.java:1914)
+        at oracle.jdbc.driver.OracleResultSet.getString(OracleResultSet.java:1515)
+        at com.web.things.db.operate.DBOperate.getTableMeta(DBOperate.java:38)
+        at com.web.things.db.operate.DBOperate.main(DBOperate.java:48)
+2013-10-29 16:35:24,332-[TS] ERROR main com.web.things.db.operate.DBOperate - 
+    java.sql.SQLException: 无效的列索引
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+        at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+        at oracle.jdbc.driver.OracleResultSetImpl.getString(OracleResultSetImpl.java:379)
+        at com.web.things.db.operate.DBOperate.getTableMeta(DBOperate.java:38)
+        at com.web.things.db.operate.DBOperate.main(DBOperate.java:48)
