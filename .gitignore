@@ -1,58 +1,74 @@
+db/target
+db/.project
+db/.settings
+db/.classpath
+db/logs
+
 jfreechart/target
 jfreechart/.project
 jfreechart/.settings
 jfreechart/.classpath
+jfreechart/logs
 
 p6spy/target
 p6spy/.project
 p6spy/.settings
 p6spy/.classpath
+p6spy/logs
 
 parent/target
 parent/.project
 parent/.settings
 parent/.classpath
+parent/logs
 
 spring-scope/target
 spring-scope/.project
 spring-scope/.settings
 spring-scope/.classpath
-
+spring-scope/logs
 
 springioc/target
 springioc/.project
 springioc/.settings
 springioc/.classpath
+springioc/logs
 
 tag/target
 tag/.project
 tag/.settings
 tag/.classpath
+tag/logs
 
 util/target
 util/.project
 util/.settings
 util/.classpath
+util/logs
 
 web/target
 web/.project
 web/.settings
 web/.classpath
+web/logs
 
 z-db/target
 z-db/.project
 z-db/.settings
 z-db/.classpath
+z-db/logs
 
 z-model/target
 z-model/.project
 z-model/.settings
 z-model/.classpath
+z-model/logs
 
 stringoperation/target
 stringoperation/.project
 stringoperation/.settings
 stringoperation/.classpath
+stringoperation/logs
 
 z-spy-source/build
 z-spy-source/.project

@@ -1,7 +1,0 @@
-2013-10-30 19:03:54,626-[TS] ERROR main com.web.things.db.print.DBPrintWord - 
-    java.io.FileNotFoundException: simple.docx (另一个程序正在使用此文件，进程无法访问。)
-        at java.io.FileOutputStream.open(Native Method)
-        at java.io.FileOutputStream.<init>(FileOutputStream.java:194)
-        at java.io.FileOutputStream.<init>(FileOutputStream.java:84)
-        at com.web.things.db.print.DBPrintWord.print(DBPrintWord.java:24)
-        at com.web.things.db.print.DBPrintWord.main(DBPrintWord.java:45)
