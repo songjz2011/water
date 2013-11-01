@@ -17,7 +17,7 @@ import com.web.things.util.LoggerUtil;
  * </pre>
  * 
  * @author songjz
- * @time 2013年10月29日
+ * @time 2013年11月2日
  */
 public class DBOperate extends AbstractDBOpreate {
 	/**

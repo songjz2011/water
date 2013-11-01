@@ -7,9 +7,17 @@ import java.util.List;
 
 import com.web.things.db.operate.TableColumnMeta;
 
-public class TableUtil {
+/**
+ * <pre>
+ * 表字段的工具类util
+ * </pre>
+ * 
+ * @author songjz
+ * @time 2013年11月2日
+ */
+public class TableColumnMetaUtil {
 
-	public static void orderByName(List<TableColumnMeta> columnMetaList) {
+	public static void sortByName(List<TableColumnMeta> columnMetaList) {
 		List<TableColumnMeta> timePointColumn = filterTimePointColumnList(columnMetaList);
 		if (timePointColumn.isEmpty()) {
 			return;
@@ -31,7 +39,13 @@ public class TableUtil {
 	 */
 	private static List<TableColumnMeta> filterNotTimePointColumnList(
 			List<TableColumnMeta> columnMetaList) {
-		return filterColumnListForTimePoint(columnMetaList, false);
+		List<TableColumnMeta> result = new LinkedList<TableColumnMeta>();
+		for (TableColumnMeta column : columnMetaList) {
+			if (!isTimePoint(column.getName())) {
+				result.add(column);
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -42,30 +56,10 @@ public class TableUtil {
 	 */
 	private static List<TableColumnMeta> filterTimePointColumnList(
 			List<TableColumnMeta> columnMetaList) {
-		return filterColumnListForTimePoint(columnMetaList, true);
-	}
-
-	/**
-	 * 过滤是否 是时刻点的列
-	 * 
-	 * @param columnMetaList
-	 * @param isTimePoint
-	 *            ：是否 是时刻点
-	 * @return
-	 */
-	private static List<TableColumnMeta> filterColumnListForTimePoint(
-			List<TableColumnMeta> columnMetaList, boolean isTimePoint) {
 		List<TableColumnMeta> result = new LinkedList<TableColumnMeta>();
 		for (TableColumnMeta column : columnMetaList) {
-			// 如果是时刻点
-			if (isTimePoint && isTimePoint(column.getName())) {
+			if (isTimePoint(column.getName())) {
 				result.add(column);
-				continue;
-			}
-			// 如果不是时刻点
-			if (!isTimePoint && !isTimePoint(column.getName())) {
-				result.add(column);
-				continue;
 			}
 		}
 		return result;

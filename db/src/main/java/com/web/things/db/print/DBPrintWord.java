@@ -23,7 +23,7 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.STVerticalJc;
 import com.web.things.db.operate.OracleOperate;
 import com.web.things.db.operate.TableColumnMeta;
 import com.web.things.db.operate.TableMeta;
-import com.web.things.db.util.TableUtil;
+import com.web.things.db.util.TableColumnMetaUtil;
 import com.web.things.util.LoggerUtil;
 import com.web.things.util.StringUtil;
 
@@ -42,8 +42,13 @@ public class DBPrintWord implements DBPrint {
 	/**
 	 * 表格头
 	 */
-	private static List<String> fieldTitleList;
-	static {
+	private List<String> fieldTitleList;
+
+	public DBPrintWord() {
+		init();
+	}
+
+	private void init() {
 		fieldTitleList = new LinkedList<String>();
 		fieldTitleList.add("字段名");
 		fieldTitleList.add("数据类型");
@@ -95,7 +100,7 @@ public class DBPrintWord implements DBPrint {
 		if (columnMetaList == null || columnMetaList.isEmpty()) {
 			return;
 		}
-		TableUtil.orderByName(columnMetaList);
+		TableColumnMetaUtil.sortByName(columnMetaList);
 
 		int rows = columnMetaList.size() + 1;
 		XWPFTable table = doc.createTable(rows, fieldTitleList.size());
@@ -237,7 +242,7 @@ public class DBPrintWord implements DBPrint {
 	public static void main(String[] args) {
 		OracleOperate oracleOperate = new OracleOperate();
 		List<TableMeta> list = new LinkedList<TableMeta>();
-		//list.add(oracleOperate.getTableMeta("ST_STATION_ACTLC"));
+		// list.add(oracleOperate.getTableMeta("ST_STATION_ACTLC"));
 		list.addAll(oracleOperate.getAllTableMeta());
 		new DBPrintWord().print(list);
 	}
