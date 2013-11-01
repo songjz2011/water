@@ -55,6 +55,6 @@ public class LoggerUtil {
 	}
 
 	private static String getNewLine() {
-		return System.getProperty("line.separator");
+		return StringUtil.getNewLine();
 	}
 }
