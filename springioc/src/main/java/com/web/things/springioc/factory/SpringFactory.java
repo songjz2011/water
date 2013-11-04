@@ -13,8 +13,14 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  * 
  * 2、ClassPathXmlApplicationContext，是根据classpath路径加载xml文件的；
  * 默认是根据 classpath加载，例如：new ClassPathXmlApplicationContext(new String[] { "spring.xml" })
- * 							或者用通配符同时加载多个配置文件ClassPathXmlApplicationContext("classpath:/*.xml")；
+ * 							或者用通配符同时加载多个配置文件ClassPathXmlApplicationContext("classpath*:/*.xml")；
  * 注意：如果要使用file路径，需要前缀file，例如new ClassPathXmlApplicationContext(new String[] { "file:spring.xml" }
+ * 
+ * 备注：
+ * classpath单个文件和多个文件的区别
+ * 单个文件：FileSystemXmlApplicationContext("classpath:spring.xml")
+ * 多个文件：FileSystemXmlApplicationContext("classpath*:spring*.xml")
+ * 			或者　FileSystemXmlApplicationContext("classpath*:/spring*.xml")
  * 
  * </pre>
  * 
@@ -26,13 +32,17 @@ public class SpringFactory {
 	private static ApplicationContext context;
 
 	static {
-		ClassLoader loader = SpringFactory.class.getClassLoader();
-		String contextPath = loader.getResource("spring-context.xml").getPath();
-		String contextStudyPath = loader.getResource("spring-context-study.xml").getPath();
-		String contextDaoPath = loader.getResource("spring-context-dao.xml").getPath();
-		String contextManagerPath = loader.getResource("spring-manager.xml").getPath();
-		context = new FileSystemXmlApplicationContext(new String[] { contextPath, contextStudyPath,
-				contextDaoPath, contextManagerPath });
+//		ClassLoader loader = SpringFactory.class.getClassLoader();
+//		String contextPath = loader.getResource("spring-context.xml").getPath();
+//		String contextStudyPath = loader.getResource("spring-context-study.xml").getPath();
+//		String contextDaoPath = loader.getResource("spring-context-dao.xml").getPath();
+//		String contextManagerPath = loader.getResource("spring-manager.xml").getPath();
+//		String contextCustomPath = loader.getResource("spring-context-custom.xml").getPath();
+//		context = new FileSystemXmlApplicationContext(new String[] { contextPath, contextStudyPath,
+//				contextDaoPath, contextManagerPath, contextCustomPath });
+		
+		context = new FileSystemXmlApplicationContext("classpath*:spring*.xml");
+		
 	}
 
 	public static ApplicationContext getContext() {

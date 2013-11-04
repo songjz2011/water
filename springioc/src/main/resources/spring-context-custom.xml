@@ -26,5 +26,8 @@
 
 	<!-- 自定义 BeanPostProcessor -->
 	<bean class="com.web.things.springioc.InstantiationTracingBeanPostProcessor" />
+	
+	<!-- 自定义BeanFactoryPostProcessor -->
+	<bean class="com.web.things.springioc.InstantiationBeanFactoryPostProcessor"/>
 
 </beans>
