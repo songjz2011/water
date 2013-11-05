@@ -76,7 +76,7 @@ public class StringUtil {
 		if (isEmpty(str)) {
 			return false;
 		}
-		return "1".equals(str.trim()) || "true".equals(str.trim());
+		return "1".equals(str.trim()) || "true".equalsIgnoreCase(str.trim());
 	}
 
 }

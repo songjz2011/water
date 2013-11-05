@@ -2,6 +2,13 @@ package com.web.things.util;
 
 import org.slf4j.LoggerFactory;
 
+/**
+ * <pre>
+ * 日志工具类
+ * </pre>
+ * 
+ * @author songjz
+ */
 public class LoggerUtil {
 	private LoggerUtil() {
 	}
