@@ -20,6 +20,7 @@ import com.web.things.springioc.CircularDependencyClass2;
 import com.web.things.springioc.ClientService;
 import com.web.things.springioc.ClientServiceLocator;
 import com.web.things.springioc.CollectionBean;
+import com.web.things.springioc.DBConfig;
 import com.web.things.springioc.ExampleBean;
 import com.web.things.springioc.ExampleBean1;
 import com.web.things.springioc.ExampleBean2;
@@ -240,5 +241,17 @@ public class SpringFactoryTest {
 	public void abstract_bean_test() {
 		AbstractBean bean = SpringFactory.getBeanByDefaultId(AbstractBeanImp.class);
 		System.out.println(bean.getName() + "--" + bean.getAge());
+	}
+	
+	@Test
+	public void PropertyPlaceholderConfigurer_test() {
+		DBConfig bean = SpringFactory.getBeanByDefaultId(DBConfig.class);
+		assertNotNull(bean.getDriverClass());
+	}
+	
+	@Test
+	public void PropertyOverrideConfigurer_test() {
+		DBConfig bean = SpringFactory.getBeanByDefaultId(DBConfig.class);
+		System.out.println(bean.getPassWord());
 	}
 }

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    ">
 
 	<bean id="firstIoc" class="com.web.things.springioc.FirstIoc">
 		<property name="prototype" ref="firstIocForPrototype" />
@@ -172,5 +175,21 @@
 		parent="abstractBean">
 		<property name="name" value="李四 抽象实现类" />
 	</bean>
+
+	<!-- 用于测试PropertyPlaceholderConfigurer，目的是初始化配置文件，便于spring使用 -->
+	<!-- <context:property-placeholder location="classpath:db.properties" /> -->
+	<bean id="dBConfig" class="com.web.things.springioc.DBConfig">
+		<property name="driverClass" value="${db.driver.class}" />
+		<property name="user" value="${db.user}" />
+		<property name="passWord" value="${db.password}" />
+	</bean>
+	<!-- context:property-placeholder的作用，和下面的功能一样 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:db.properties" />
+	</bean>
+
+	<!-- 用于测试PropertyOverrideConfigurer，用于 重置对象的值， 例如：dBConfig.user=replaceUser，用户重置spring中dBConfig对象中属性user的值为replaceUser -->
+	<context:property-override location="classpath:override.db.properties" />
 
 </beans>
