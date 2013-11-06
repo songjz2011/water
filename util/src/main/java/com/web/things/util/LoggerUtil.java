@@ -1,5 +1,6 @@
 package com.web.things.util;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -18,7 +19,7 @@ public class LoggerUtil {
 	}
 
 	public static void warn(Class<?> clazz, String message) {
-		LoggerFactory.getLogger(clazz).warn(message);
+		getLogger(clazz).warn(message);
 	}
 
 	public static void debug(Class<?> clazz, Throwable t) {
@@ -26,7 +27,7 @@ public class LoggerUtil {
 	}
 
 	public static void debug(Class<?> clazz, String message) {
-		LoggerFactory.getLogger(clazz).debug(message);
+		getLogger(clazz).debug(message);
 	}
 
 	public static void info(Class<?> clazz, Throwable t) {
@@ -34,7 +35,7 @@ public class LoggerUtil {
 	}
 
 	public static void info(Class<?> clazz, String message) {
-		LoggerFactory.getLogger(clazz).info(message);
+		getLogger(clazz).info(message);
 	}
 
 	public static void error(Class<?> clazz, Throwable t) {
@@ -42,7 +43,11 @@ public class LoggerUtil {
 	}
 
 	public static void error(Class<?> clazz, String message) {
-		LoggerFactory.getLogger(clazz).error(message);
+		getLogger(clazz).error(message);
+	}
+
+	private static Logger getLogger(Class<?> clazz) {
+		return LoggerFactory.getLogger(clazz);
 	}
 
 	/**
