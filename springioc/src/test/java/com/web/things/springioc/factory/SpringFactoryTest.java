@@ -211,7 +211,10 @@ public class SpringFactoryTest {
 		System.out.println(map);
 
 		Set<String> set = bean.getSet();
-		System.out.println(set);
+		System.out.println("set集合=" + set);
+		set.add("手动增加set的值");
+		CollectionBean bean1 = SpringFactory.getBean("collectionBean", CollectionBean.class);
+		System.out.println("set集合111=" + bean1.getSet());
 	}
 
 	@Test
