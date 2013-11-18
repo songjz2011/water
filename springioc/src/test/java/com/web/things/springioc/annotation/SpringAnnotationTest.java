@@ -57,5 +57,12 @@ public class SpringAnnotationTest {
 		MovieRecommender bean = SpringFactory.getBeanByDefaultId(MovieRecommender.class);
 		assertNotNull(bean);
 	}
+	
+	@Test
+	public void annotation_PostConstruct() {
+		PostConstructAnnotation bean = SpringFactory.getBeanByDefaultId(PostConstructAnnotation.class);
+		System.out.println(bean);
+		SpringFactory.getContext().registerShutdownHook();
+	}
 
 }

@@ -16,7 +16,7 @@ public class SpringFactory1 {
 	static {
 		context = new ClassPathXmlApplicationContext(new String[] { "spring.xml" });
 	}
-
+	
 	public static Object getBean(String id) {
 		return context.getBean(id);
 	}

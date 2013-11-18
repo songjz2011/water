@@ -1,6 +1,6 @@
 package com.web.things.springioc.factory;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
@@ -29,7 +29,9 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  */
 public class SpringFactory {
 
-	private static ApplicationContext context;
+	//private static ApplicationContext context;
+	
+	private static AbstractApplicationContext context;
 
 	static {
 //		ClassLoader loader = SpringFactory.class.getClassLoader();
@@ -42,10 +44,9 @@ public class SpringFactory {
 //				contextDaoPath, contextManagerPath, contextCustomPath });
 		
 		context = new FileSystemXmlApplicationContext("classpath*:spring*.xml");
-		
 	}
 
-	public static ApplicationContext getContext() {
+	public static AbstractApplicationContext getContext() {
 		return context;
 	}
 

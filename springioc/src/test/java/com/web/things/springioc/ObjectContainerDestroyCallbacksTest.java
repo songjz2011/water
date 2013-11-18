@@ -1,19 +1,17 @@
 package com.web.things.springioc;
 
-import org.junit.Before;
+import org.junit.Test;
 
 import com.web.things.springioc.factory.SpringFactory;
-import com.web.things.util.LoggerUtil;
 
 public class ObjectContainerDestroyCallbacksTest {
 
-	private ObjectContainerDestroyCallbacks bean;
-
-	@Before
-	public void beforeEachMethod() {
-		bean = SpringFactory.getBeanByDefaultId(ObjectContainerDestroyCallbacks.class);
-		LoggerUtil.info(this.getClass(), bean.toString());
+	@Test
+	public void test() {
+		ObjectContainerDestroyCallbacks bean = SpringFactory
+				.getBeanByDefaultId(ObjectContainerDestroyCallbacks.class);
+		SpringFactory.getContext().registerShutdownHook();
+		System.out.println("bean.isDestroy() = " + bean.isDestroy());
 	}
-	
 
 }
