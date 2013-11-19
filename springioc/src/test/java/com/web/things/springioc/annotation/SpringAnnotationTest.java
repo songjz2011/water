@@ -9,6 +9,8 @@ import org.junit.Test;
 
 import com.web.things.springioc.factory.SpringFactory;
 
+import extra.entity.ExtraEntity;
+
 public class SpringAnnotationTest {
 
 	@Test
@@ -63,6 +65,12 @@ public class SpringAnnotationTest {
 		PostConstructAnnotation bean = SpringFactory.getBeanByDefaultId(PostConstructAnnotation.class);
 		System.out.println(bean);
 		SpringFactory.getContext().registerShutdownHook();
+	}
+	
+	@Test
+	public void annotation_config_include_filter() {
+		ExtraEntity bean = SpringFactory.getBeanByDefaultId(ExtraEntity.class);
+		assertNotNull(bean);
 	}
 
 }
