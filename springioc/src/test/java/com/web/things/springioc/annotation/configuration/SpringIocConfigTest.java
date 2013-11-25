@@ -28,5 +28,11 @@ public class SpringIocConfigTest {
 		MovieResource bean = SpringFactoryAnnotation.getBean(MovieResource.class);
 		assertNotNull(bean);
 	}
+	
+	@Test
+	public void annotation_resource_for_configration() {
+		ConfigrationDaoService bean = SpringFactoryAnnotation.getBean(ConfigrationDaoService.class);
+		assertNotNull(bean.getConfigrationDao());
+	}
 
 }

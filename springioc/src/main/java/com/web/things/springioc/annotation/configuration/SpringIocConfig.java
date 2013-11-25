@@ -20,4 +20,9 @@ public class SpringIocConfig {
 	public ConfigrationService configrationServiceImp2() {
 		return new ConfigrationServiceImp2();
 	}
+
+	@Bean
+	public ConfigrationDao configrationDao() {
+		return new ConfigrationDao();
+	}
 }
