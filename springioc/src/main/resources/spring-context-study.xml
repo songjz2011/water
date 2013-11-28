@@ -176,20 +176,12 @@
 		<property name="name" value="李四 抽象实现类" />
 	</bean>
 
-	<!-- 用于测试PropertyPlaceholderConfigurer，目的是初始化配置文件，便于spring使用 -->
+	<!-- 配置文件 参见 spring-context-properties.xml -->
 	<!-- <context:property-placeholder location="classpath:db.properties" /> -->
 	<bean id="dBConfig" class="com.web.things.springioc.DBConfig">
 		<property name="driverClass" value="${db.driver.class}" />
 		<property name="user" value="${db.user}" />
 		<property name="passWord" value="${db.password}" />
 	</bean>
-	<!-- context:property-placeholder的作用，和下面的功能一样 -->
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations" value="classpath:db.properties" />
-	</bean>
-
-	<!-- 用于测试PropertyOverrideConfigurer，用于 重置对象的值， 例如：dBConfig.user=replaceUser，用户重置spring中dBConfig对象中属性user的值为replaceUser -->
-	<context:property-override location="classpath:override.db.properties" />
 
 </beans>

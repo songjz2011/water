@@ -22,17 +22,24 @@ public class SpringIocConfigTest {
 		ConfigrationService bean1 = SpringFactoryAnnotation.getBean(ConfigrationServiceImp2.class);
 		assertEquals(ConfigrationServiceImp2.class.getSimpleName(), bean1.getName());
 	}
-	
+
 	@Test
 	public void annotation_resource() {
 		MovieResource bean = SpringFactoryAnnotation.getBean(MovieResource.class);
 		assertNotNull(bean);
 	}
-	
+
 	@Test
 	public void annotation_resource_for_configration() {
 		ConfigrationDaoService bean = SpringFactoryAnnotation.getBean(ConfigrationDaoService.class);
 		assertNotNull(bean.getConfigrationDao());
+	}
+
+	@Test
+	public void annotation_importresource() {
+		// AnnotationImportResource bean =
+		// SpringFactoryAnnotation.getBean(AnnotationImportResource.class);
+		// assertEquals("www.water.com", bean.getUrl());
 	}
 
 }

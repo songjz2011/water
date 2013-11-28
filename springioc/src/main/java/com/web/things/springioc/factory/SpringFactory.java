@@ -1,5 +1,7 @@
 package com.web.things.springioc.factory;
 
+import java.util.Locale;
+
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
@@ -29,21 +31,30 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  */
 public class SpringFactory {
 
-	//private static ApplicationContext context;
-	
+	// private static ApplicationContext context;
+
 	private static AbstractApplicationContext context;
+	
+	private static Locale locale;
 
 	static {
-//		ClassLoader loader = SpringFactory.class.getClassLoader();
-//		String contextPath = loader.getResource("spring-context.xml").getPath();
-//		String contextStudyPath = loader.getResource("spring-context-study.xml").getPath();
-//		String contextDaoPath = loader.getResource("spring-context-dao.xml").getPath();
-//		String contextManagerPath = loader.getResource("spring-manager.xml").getPath();
-//		String contextCustomPath = loader.getResource("spring-context-custom.xml").getPath();
-//		context = new FileSystemXmlApplicationContext(new String[] { contextPath, contextStudyPath,
-//				contextDaoPath, contextManagerPath, contextCustomPath });
-		
+		// ClassLoader loader = SpringFactory.class.getClassLoader();
+		// String contextPath =
+		// loader.getResource("spring-context.xml").getPath();
+		// String contextStudyPath =
+		// loader.getResource("spring-context-study.xml").getPath();
+		// String contextDaoPath =
+		// loader.getResource("spring-context-dao.xml").getPath();
+		// String contextManagerPath =
+		// loader.getResource("spring-manager.xml").getPath();
+		// String contextCustomPath =
+		// loader.getResource("spring-context-custom.xml").getPath();
+		// context = new FileSystemXmlApplicationContext(new String[] {
+		// contextPath, contextStudyPath,
+		// contextDaoPath, contextManagerPath, contextCustomPath });
+
 		context = new FileSystemXmlApplicationContext("classpath*:spring*.xml");
+		locale = Locale.US;
 	}
 
 	public static AbstractApplicationContext getContext() {
@@ -79,6 +90,32 @@ public class SpringFactory {
 		String name = cl.getSimpleName();
 		name = Character.toLowerCase(name.charAt(0)) + name.substring(1);
 		return name;
+	}
+
+	/**
+	 * 国际化
+	 * 
+	 * @param code
+	 * @return
+	 */
+	public static String getMessage(String code) {
+		return context.getMessage(code, null, null, locale);
+	}
+
+	/**
+	 * 国际化
+	 * 
+	 * @param code
+	 * @param args
+	 *            ：参数
+	 * @return
+	 */
+	public static String getMessage(String code, Object[] args) {
+		return context.getMessage(code, args, "", locale);
+	}
+
+	public static Locale getLocale() {
+		return locale;
 	}
 
 }
