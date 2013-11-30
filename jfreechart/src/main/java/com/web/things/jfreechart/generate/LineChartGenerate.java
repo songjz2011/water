@@ -224,7 +224,7 @@ public class LineChartGenerate extends AbstractChartGenerate {
 	 * @return
 	 */
 	private String getLengendName(ChartData chartData, int index) {
-		String lengendName = StringUtil.killNull(chartData.getLegendName());
+		String lengendName = StringUtil.trim(chartData.getLegendName());
 		if (StringUtil.isEmpty(lengendName)) {
 			lengendName = String.valueOf(index);
 		}
