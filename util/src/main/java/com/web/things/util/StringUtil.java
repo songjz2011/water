@@ -9,14 +9,15 @@ package com.web.things.util;
 public class StringUtil {
 
 	/**
-	 * 判断字符是否为空，为空则返回true<br>
+	 * 判断是否为空，为空则返回true<br>
 	 * 为空的条件：null、""、"null"
 	 * 
-	 * @param str
+	 * @param obj
 	 * @return
 	 */
-	public static boolean isEmpty(String str) {
-		if (str == null || "".equals(str.trim()) || "null".equalsIgnoreCase(str.trim())) {
+	public static boolean isEmpty(Object obj) {
+		if (obj == null || "".equals(obj.toString().trim())
+				|| "null".equalsIgnoreCase(obj.toString().trim())) {
 			return true;
 		}
 		return false;
@@ -29,11 +30,11 @@ public class StringUtil {
 	 * @param str
 	 * @return
 	 */
-	public static String trim(String str) {
+	public static String trim(Object str) {
 		if (isEmpty(str)) {
 			return "";
 		}
-		return str.trim();
+		return str.toString().trim();
 	}
 
 	/**
@@ -49,8 +50,8 @@ public class StringUtil {
 		if (isEmpty(input)) {
 			return "";
 		}
-		String str = input.replaceAll("<[a-zA-Z]+[1-9]?[^><]*>", "").replaceAll(
-				"</[a-zA-Z]+[1-9]?>", "");
+		String str = input.replaceAll("<[a-zA-Z]+[1-9]?[^><]*>", "")
+				.replaceAll("</[a-zA-Z]+[1-9]?>", "");
 		str = str.replaceAll("[(/>)<]", "");
 		int len = str.length();
 		if (len <= length) {

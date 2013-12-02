@@ -186,7 +186,7 @@ public abstract class AbstractChartGenerate implements IChartGenerate {
 				if (!StringUtil.isEmpty(dataList.get(j))) {
 					data = Double.parseDouble(dataList.get(j).trim());
 				}
-				String lengendName = StringUtil.killNull(chartData.getLegendName());
+				String lengendName = StringUtil.trim(chartData.getLegendName());
 				if (StringUtil.isEmpty(lengendName)) {
 					lengendName = String.valueOf(i);
 				}
@@ -239,7 +239,7 @@ public abstract class AbstractChartGenerate implements IChartGenerate {
 			if (dataIsEmpty(chartData.getDataList())) {
 				continue;
 			}
-			colorList.add(StringUtil.killNull(chartData.getColor()));
+			colorList.add(StringUtil.trim(chartData.getColor()));
 		}
 		return colorList;
 	}
