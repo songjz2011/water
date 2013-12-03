@@ -59,6 +59,13 @@
 			<artifactId>util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<!-- springioc -->
+		<dependency>
+			<groupId>com.web.things</groupId>
+			<artifactId>springioc</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
 	</dependencies>
 

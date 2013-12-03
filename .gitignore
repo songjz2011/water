@@ -16,6 +16,12 @@ p6spy/.settings
 p6spy/.classpath
 p6spy/logs
 
+model/target
+model/.project
+model/.settings
+model/.classpath
+model/logs
+
 parent/target
 parent/.project
 parent/.settings
