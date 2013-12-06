@@ -2,7 +2,7 @@ package com.design.model.strategy;
 
 /**
  * <pre>
- * 计算价格超类
+ * 计算价格超类，策略
  * </pre>
  * 
  * @author songjz

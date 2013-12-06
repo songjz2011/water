@@ -16,6 +16,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.web.things</groupId>
+			<artifactId>util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
