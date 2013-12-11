@@ -12,5 +12,8 @@ asdfasdf
 <%
 	out.println(StringUtil.isEmpty(""));
 %>
+<form action="" enctype="application/x-www-form-urlencoded" >
+
+</form>
 </body>
 </html>

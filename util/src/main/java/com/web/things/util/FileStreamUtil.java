@@ -3,6 +3,8 @@ package com.web.things.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
 
 /**
  * <pre>
@@ -43,6 +45,38 @@ public class FileStreamUtil {
 				}
 			} catch (IOException e) {
 				LoggerUtil.error(SerializeUtil.class, e.getMessage());
+			}
+		}
+	}
+
+	/**
+	 * 关闭Reader流
+	 * 
+	 * @param streams
+	 */
+	public static void closeReader(Reader... readers) {
+		for (Reader reader : readers) {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+			}
+		}
+	}
+
+	/**
+	 * 关闭Writer流
+	 * 
+	 * @param streams
+	 */
+	public static void closeWriter(Writer... writers) {
+		for (Writer writer : writers) {
+			try {
+				if (writer != null) {
+					writer.close();
+				}
+			} catch (IOException e) {
 			}
 		}
 	}
