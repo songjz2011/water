@@ -1,0 +1,1 @@
+简单工厂的实现方式：OperateFactory
