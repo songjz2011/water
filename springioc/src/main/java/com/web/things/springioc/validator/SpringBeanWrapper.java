@@ -4,6 +4,7 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
 import com.web.things.springioc.entity.Company;
+import com.web.things.springioc.entity.Employee;
 
 public class SpringBeanWrapper {
 
@@ -16,7 +17,13 @@ public class SpringBeanWrapper {
 		// PropertyValue value = new PropertyValue("name", "Some Company Inc.");
 		// beanWrapper.setPropertyValue(value);
 		System.out.println(company.getName());
+
+		BeanWrapper emloyeeWrapper = new BeanWrapperImpl(new Employee());
+		emloyeeWrapper.setPropertyValue("name", "张三");
+
+		beanWrapper.setPropertyValue("managingDirector", emloyeeWrapper.getWrappedInstance());
+		
+		System.out.println(company.getManagingDirector().getName());
 	}
 
-	
 }
