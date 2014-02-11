@@ -21,14 +21,14 @@ public class HelloController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("username = " + getInitParameter("username"));
+		//System.out.println("username = " + getInitParameter("username"));
 		System.out.println(this);
 		request.getRequestDispatcher("").forward(request, response);
 	}
 
 	@Override
 	public void destroy() {
-		System.out.println("destroy()...");
+		//System.out.println("destroy()...");
 		super.destroy();
 	}
 
@@ -70,7 +70,7 @@ public class HelloController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("init(ServletConfig config)...");
+		//System.out.println("init(ServletConfig config)...");
 		super.init(config);
 	}
 
