@@ -1,10 +1,13 @@
 package com.web.things.net;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.URL;
 
 import com.web.things.util.StringUtil;
@@ -19,22 +22,38 @@ import com.web.things.util.StringUtil;
  */
 public class NetRead {
 
-	private String urlAddress = "http://www.baidu.com";
+	private String urlAddress = "http://www.jd.com/";
 
 	public void read() {
 		try {
 			URL url = new URL(urlAddress);
 			InputStream inputStream = openStream(url);
-			InputStreamReader reader = new InputStreamReader(inputStream);
+			InputStreamReader reader = new InputStreamReader(inputStream, "GBK");
 			BufferedReader bufferReader = new BufferedReader(reader);
 			String line = bufferReader.readLine();
 			StringBuilder result = new StringBuilder();
 			String newLine = StringUtil.getNewLine();
-			while(line != null) {
+			while (line != null) {
 				result.append(line).append(newLine);
 				line = bufferReader.readLine();
 			}
 			System.out.println(result);
+			write(result.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void write(String value) {
+		try {
+			File file = new File("E:/pachong/jd.txt");
+			file.deleteOnExit();
+			boolean v = file.createNewFile();
+			
+			FileOutputStream fileWriter = new FileOutputStream(file);
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileWriter, "GBK");
+			BufferedWriter bufferWriter = new BufferedWriter(outputStreamWriter);
+			bufferWriter.write(value, 0, value.length());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
