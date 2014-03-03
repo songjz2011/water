@@ -371,4 +371,5 @@
 		<module>../spring-scope</module>
 		<module>../springioc</module>
 	</modules>
+	
 </project>

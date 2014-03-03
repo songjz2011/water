@@ -1,0 +1,1 @@
+var editor = CKEDITOR.replace('textarea1');
