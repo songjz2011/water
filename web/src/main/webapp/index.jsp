@@ -4,16 +4,14 @@
 <html>
 <head>
 <title>Insert title here</title>
-<%@include file="./rich_client.jsp" %>
 </head>
 <body>
-<form action="ckEditor.do" method="post">
-	<textarea name="textarea1">
-	<%=request.getAttribute("value") %>
-	</textarea>
+	<a href="./ckeditor_demo/ckEditor_demo.jsp">ckEditor_demo</a>
+	<br>
+	<br>
 	
-	<input type="submit" value="提交">
-</form>
-<script type="text/javascript" src="./index.js"></script>
+	<a href="./summernote_demo/summernot_demo.jsp">summernote_demo</a>
+	<br>
+	<br>
 </body>
 </html>
