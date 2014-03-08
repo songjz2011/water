@@ -13,5 +13,9 @@
 	<a href="./summernote_demo/summernot_demo.jsp">summernote_demo</a>
 	<br>
 	<br>
+	
+	<a href="./ueditor_demo/ueditor_demo.jsp">ueditor_demo</a>
+	<br>
+	<br>
 </body>
 </html>
