@@ -12,7 +12,7 @@
 
 	<properties>
 		<junit.version>4.10</junit.version>
-		<spring.version>3.2.3.RELEASE</spring.version>
+		<spring.version>3.2.8.RELEASE</spring.version>
 		<!-- <spring.version>4.0.1.RELEASE</spring.version> -->
 		<fastjson.version>1.1.39</fastjson.version>
 
@@ -33,6 +33,13 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring transaction -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
