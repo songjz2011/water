@@ -13,8 +13,9 @@
 	<properties>
 		<junit.version>4.10</junit.version>
 		<spring.version>3.2.3.RELEASE</spring.version>
+		<!-- <spring.version>3.2.8.RELEASE</spring.version> -->
 		<!-- <spring.version>4.0.1.RELEASE</spring.version> -->
-		<hibernate.version>4.3.4.Final</hibernate.version>
+		<!-- <hibernate.version>4.3.4.Final</hibernate.version> -->
 		<fastjson.version>1.1.39</fastjson.version>
 
 		<!-- web -->
@@ -53,6 +54,7 @@
 		<!-- spring config end -->
 
 		<!-- hibernate config start -->
+		<!-- 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -68,6 +70,7 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		-->
 		<!-- hibernate config end -->
 
 		<!-- jstl -->
