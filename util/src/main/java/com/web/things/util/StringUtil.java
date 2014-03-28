@@ -38,6 +38,37 @@ public class StringUtil {
 	}
 
 	/**
+	 * 获取新行
+	 * 
+	 * @return
+	 */
+	public static String getNewLine() {
+		return System.getProperty("line.separator");
+	}
+
+	/**
+	 * 去除参数的出现的所有空格，若参数为null或者长度为空，返回自身
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String trimAllWhitespace(String str) {
+		if (str == null || str.length() == 0) {
+			return str;
+		}
+		StringBuilder sb = new StringBuilder(str);
+		int index = 0;
+		while (sb.length() > index) {
+			if (Character.isWhitespace(sb.charAt(index))) {
+				sb.deleteCharAt(index);
+			} else {
+				index++;
+			}
+		}
+		return sb.toString();
+	}
+
+	/**
 	 * 在展示的时候，可能需要去掉字符串中的html标签，只展示无格式的字符，并且在字符的长度超一定值时使用......代替超出部分
 	 * 
 	 * @param input
@@ -50,8 +81,8 @@ public class StringUtil {
 		if (isEmpty(input)) {
 			return "";
 		}
-		String str = input.replaceAll("<[a-zA-Z]+[1-9]?[^><]*>", "")
-				.replaceAll("</[a-zA-Z]+[1-9]?>", "");
+		String str = input.replaceAll("<[a-zA-Z]+[1-9]?[^><]*>", "").replaceAll(
+				"</[a-zA-Z]+[1-9]?>", "");
 		str = str.replaceAll("[(/>)<]", "");
 		int len = str.length();
 		if (len <= length) {
@@ -61,23 +92,6 @@ public class StringUtil {
 			str += "......";
 		}
 		return str;
-	}
-
-	public static String getNewLine() {
-		return System.getProperty("line.separator");
-	}
-
-	/**
-	 * 判断字符串是否为"1"or"true"
-	 * 
-	 * @param str
-	 * @return
-	 */
-	public static boolean isTrue(String str) {
-		if (isEmpty(str)) {
-			return false;
-		}
-		return "1".equals(str.trim()) || "true".equalsIgnoreCase(str.trim());
 	}
 
 }

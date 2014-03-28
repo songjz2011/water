@@ -16,8 +16,8 @@ public class CashReturn extends CashSuper {
 	private double moneyReturn;
 
 	public CashReturn(String moneyCondition, String moneyReturn) {
-		this.moneyCondition = NumberUtil.convert(moneyCondition);
-		this.moneyReturn = NumberUtil.convert(moneyReturn);
+		this.moneyCondition = NumberUtil.parseNumber(moneyCondition, Double.class);
+		this.moneyReturn = NumberUtil.parseNumber(moneyReturn, Double.class);
 	}
 
 	public double acceptCash(double money) {

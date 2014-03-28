@@ -13,14 +13,17 @@
 
 	<!-- 定义全局的属性编辑器 使用了<mvc:annotation-driven />的时候，它 会自动注册DefaultAnnotationHandlerMapping 
 		与AnnotationMethodHandlerAdapter 两个bean。这时候第二种方式指定的全局属性编辑器就不会起作用了， 解决办法就是手动的添加上述bean， 
-		并把它们加在<mvc:annotation-driven/>的前面 -->
+		并把它们加在<mvc:annotation-driven/>的前面。备注：此种方式，是否会覆盖掉spring本身的ConfigurableWebBindingInitializer注册， 
+		暂还不清楚，建议不设置全局的，每个controller进行自定义，见ControllerDemo -->
+	<!-- 
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="webBindingInitializer">
 			<bean class="com.web.things.webcms.editor.GlobalEditorInitializer" />
 		</property>
 	</bean>
-
+	-->
+	
 	<!-- 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 
 		两个bean,是spring MVC为@Controllers分发请求所必须的；并提供了：数据绑定支持，@NumberFormatannotation支持， 
 		@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson） -->
