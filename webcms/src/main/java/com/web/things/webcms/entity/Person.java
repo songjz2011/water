@@ -2,6 +2,9 @@ package com.web.things.webcms.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 /**
  * @author songjz
  * @time 2013年10月8日
@@ -15,8 +18,11 @@ public class Person {
 	private String address;
 
 	private int age;
-	
+
 	private Date createTime;
+
+	@DateTimeFormat(pattern="yyyy/MM/dd")
+	private Date updateTime;
 
 	private Company company;
 
@@ -76,6 +82,14 @@ public class Person {
 
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 }

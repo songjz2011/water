@@ -2,6 +2,7 @@ package com.web.things.webcms.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -37,9 +39,12 @@ public class ControllerDemo {
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		// 添加一个日期类型编辑器，也就是需要日期类型的时候，怎么把字符串转化为日期类型
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		dateFormat.setLenient(false);
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+//		
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//		dateFormat.setLenient(false);
+//		binder.registerCustomEditor(Date.class, "createTime",
+//				new CustomDateEditor(dateFormat, true));
+//		
 		// 添加一个自定义编辑器
 		binder.registerCustomEditor(Company.class, "company", companyEditor);
 
@@ -54,9 +59,12 @@ public class ControllerDemo {
 	}
 
 	@RequestMapping(value = "/validator")
-	public String validator(@Validated Person person, BindingResult br,
-			HttpServletRequest request) {
+	public String validator(@Validated Person person, BindingResult br, HttpServletRequest request) {
 		if (br.hasErrors()) {
+			List<FieldError> list = br.getFieldErrors();
+			for(FieldError error : list) {
+				System.out.println(error.getField() + " = " + error.getObjectName());
+			}
 			return "demo/spring/edit_person";
 		}
 		return "demo/spring/helloworld";

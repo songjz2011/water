@@ -8,6 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+	Object obj = request.getAttribute("errors");
+	System.out.println("obj = " + obj);
+%>
 <form action="${_ctx}/spring-demo/validator" method="post">
 	姓名：<input name="name" type="text">
 	<br>
@@ -17,7 +21,9 @@
 	<br>
 	角色：<input type="text" name="role">
 	<br>
-	角色：<input type="text" name="createTime">
+	创建时间：<input type="text" name="createTime">
+	<br>
+	更新时间：<input type="text" name="updateTime">
 	<br>
 	<input type="submit" value="提交">
 </form>
