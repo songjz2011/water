@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean id="numberGuess" class="com.web.things.springioc.expression.NumberGuess">
+		<property name="randomNumber" value="#{T(java.lang.Math).random() * 100.0}" />
+		<property name="defaultLocale" value="#{ systemProperties['java.version'] }" />
+	</bean>
+	<bean id="shapeGuess" class="com.web.things.springioc.expression.ShapeGuess">
+		<property name="initialShapeSeed" value="#{numberGuess.randomNumber}" />
+	</bean>
+</beans>
