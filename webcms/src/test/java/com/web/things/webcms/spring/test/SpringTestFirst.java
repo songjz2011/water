@@ -1,9 +1,12 @@
 package com.web.things.webcms.spring.test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
+import static org.junit.Assert.*;
 
 import javax.annotation.Resource;
 
@@ -13,17 +16,31 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.BeforeTransaction;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring*.xml" })
-@WebAppConfiguration
+@ContextConfiguration(locations={"classpath:spring-context.xml","classpath:spring-mvc.xml"})
+//@ContextConfiguration({ "classpath:spring*.xml" })
+
+//@ContextHierarchy({
+//    @ContextConfiguration(name = "parent",locations={"classpath:spring-context.xml"}),
+//    @ContextConfiguration(name = "child",locations={"classpath:spring-mvc.xml"})
+//})
+
+//defaults to "file:src/main/webapp"
+@WebAppConfiguration("src/main/webapp")
+
 //@TransactionConfiguration(defaultRollback = true, transactionManager = "")
-@Transactional
+//@Transactional
+
+//定义 启动的环境，分为（dev:开发环境，test:测试环境，production:生产环境）
+//@ActiveProfiles("dev")
 public class SpringTestFirst {
 
 	@Resource
@@ -38,7 +55,8 @@ public class SpringTestFirst {
 		// WebApplicationContext context =
 		// ContextLoader.getCurrentWebApplicationContext();
 		// 如果控制器包含如上方法 则会报空指针
-		this.mockMvc = webAppContextSetup(this.wac).build();
+		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+		//this.mockMvc = MockMvcBuilders.standaloneSetup(new ControllerDemo()).build();
 	}
 
 	@BeforeTransaction
@@ -46,15 +64,19 @@ public class SpringTestFirst {
 		System.out.println("beforeTransaction()");
 	}
 
-	@Test
+	@Test()
 	public void test() {
 		try {
 			System.out.println("test()");
-			mockMvc.perform((get("/spring-demo/helloworld"))).andExpect(status().isOk())
-					.andDo(print());
+			MockHttpServletRequestBuilder builder = get("/spring-demo/helloworld");
+			ResultActions actions = mockMvc.perform(builder);
+			actions.andExpect(status().isOk());
+			actions.andExpect(forwardedUrl("/page/demo/spring/helloworld.jsp"));
+			assertEquals("汤姆",actions.andReturn().getRequest().getAttribute("name"));
+			actions.andDo(print());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
+
 }

@@ -7,4 +7,5 @@
 	<bean id="personService" class="com.web.things.springioc.service.imp.PersonServiceImp">
 		<property name="personDao" ref="personDao"></property>
 	</bean>
+	
 </beans>
