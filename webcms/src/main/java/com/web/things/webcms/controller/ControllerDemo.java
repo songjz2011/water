@@ -15,7 +15,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.web.things.webcms.editor.CompanyEditor;
 import com.web.things.webcms.entity.Company;
 import com.web.things.webcms.entity.Person;
@@ -53,9 +56,17 @@ public class ControllerDemo {
 	}
 
 	@RequestMapping(value = "/helloworld")
-	public String demo(HttpServletRequest request) {
+	public String helloworld(HttpServletRequest request) {
 		request.setAttribute("name", "汤姆");
 		return "demo/spring/helloworld";
+	}
+	
+	@RequestMapping(value = "/json", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	public String json(HttpServletRequest request) {
+		JSONObject obj = new JSONObject();
+		obj.put("data", "我是谁");
+		return obj.toString();
 	}
 
 	@RequestMapping(value = "/validator")

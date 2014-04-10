@@ -1,12 +1,12 @@
 package com.web.things.webcms.spring.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
-import static org.junit.Assert.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import javax.annotation.Resource;
 
@@ -19,7 +19,6 @@ import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -64,15 +63,30 @@ public class SpringTestFirst {
 		System.out.println("beforeTransaction()");
 	}
 
-	@Test()
-	public void test() {
+	@Test
+	public void testHello() {
 		try {
-			System.out.println("test()");
+			System.out.println("testHello()");
 			MockHttpServletRequestBuilder builder = get("/spring-demo/helloworld");
 			ResultActions actions = mockMvc.perform(builder);
 			actions.andExpect(status().isOk());
 			actions.andExpect(forwardedUrl("/page/demo/spring/helloworld.jsp"));
 			assertEquals("汤姆",actions.andReturn().getRequest().getAttribute("name"));
+			actions.andDo(print());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testJson() {
+		try {
+			System.out.println("testJson()");
+			MockHttpServletRequestBuilder builder = post("/spring-demo/json");
+			ResultActions actions = mockMvc.perform(builder);
+			actions.andExpect(status().isOk());
+			actions.andExpect(content().contentType("text/plain;charset=UTF-8"));
+			System.out.println(actions.andReturn().getResponse().getContentAsString());
 			actions.andDo(print());
 		} catch (Exception e) {
 			e.printStackTrace();
