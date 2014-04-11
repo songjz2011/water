@@ -31,16 +31,4 @@
 	<!-- 下面定义，主要是为了测试MovieAutowired.finders，定义多个，@Autowired到数组中 -->
 	<bean id="finder2" class="com.web.things.springioc.annotation.MovieFinder"/>
 	
-	<!-- 定义 测试环境 -->
-	<beans profile="test">
-	</beans>
-
-	<!-- 定义 生产环境 -->
-	<beans profile="production">
-	</beans>
-
-	<!-- 定义 开发环境 -->
-	<beans profile="dev">
-	</beans>
-	
 </beans>

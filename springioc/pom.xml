@@ -25,6 +25,16 @@
 
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 		</dependency>
 
@@ -43,7 +53,7 @@
 			<artifactId>util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<!-- servlet workon compile -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -54,6 +64,12 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<scope>compile</scope>
+		</dependency>
+
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
 		<dependency>
@@ -67,6 +83,25 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+
+		<!-- 数据库链接池 -->
+		<!-- DBCP 2.0 binaries should be used by applications running under Java 
+			7. DBCP 1.4 binaries should be used by applications running under Java 6. -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+		<!-- 数据库链接池 结束 -->
+		
+
+
 	</dependencies>
 
 	<!-- 插件配置 -->
