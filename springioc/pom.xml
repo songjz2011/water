@@ -43,6 +43,18 @@
 			<artifactId>util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<!-- servlet workon compile -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>compile</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>

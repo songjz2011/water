@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+	<!-- 扫描java文件，进行注解，具体含义，请参见spring-context.xml -->
+	<context:component-scan base-package="com.web.things.**.controller" />
+
+	<!-- 定义全局的属性编辑器 使用了<mvc:annotation-driven />的时候，它 会自动注册DefaultAnnotationHandlerMapping 
+		与AnnotationMethodHandlerAdapter 两个bean。这时候第二种方式指定的全局属性编辑器就不会起作用了， 解决办法就是手动的添加上述bean， 
+		并把它们加在<mvc:annotation-driven/>的前面。备注：此种方式，是否会覆盖掉spring本身的ConfigurableWebBindingInitializer注册， 
+		暂还不清楚，建议不设置全局的，每个controller进行自定义，见ControllerDemo -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"> 
+		<property name="webBindingInitializer"> <bean class="com.web.things.webcms.editor.GlobalEditorInitializer" 
+		/> </property> </bean> -->
+
+	<!-- 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 
+		两个bean,是spring MVC为@Controllers分发请求所必须的；并提供了：数据绑定支持，@NumberFormatannotation支持， 
+		@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson） -->
+	<mvc:annotation-driven />
+
+	<!-- 对静态资源文件的访问 ，两种方式 mvc:resources 和 mvc:default-servlet-handler -->
+	<!-- 把mapping的URI注册到SimpleUrlHandlerMapping的urlMap中, key为mapping的URI pattern值, 
+		而value为ResourceHttpRequestHandler, 这样就巧妙的把对静态资源的访问由 HandlerMapping转到ResourceHttpRequestHandler处理并返回, 
+		所以就支持classpath目录,jar包内静态资源的访问. -->
+	<!-- <mvc:resources location="/static/" mapping="/static/**" /> -->
+
+	<!-- 会把"/**" url,注册到SimpleUrlHandlerMapping的urlMap中,把对静态资源的访问由HandlerMapping转到 
+		org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler处理并返回. 
+		DefaultServletHttpRequestHandler使用就是各个Servlet容器自己的默认Servlet. -->
+	<mvc:default-servlet-handler />
+
+	<!-- 首页 -->
+	<mvc:view-controller path="/" view-name="index" />
+
+	<!-- 定义JSP： prefix前缀定义了webapp/page/目录（所以在controller中直接写page目录下的目录路径即可）； 
+		suffix后缀定义了文件的后缀，不用每次都写*.jsp -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/page/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+</beans>
