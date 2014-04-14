@@ -1,19 +1,39 @@
 package com.lmning.graphs;
+
 /**
+ * <pre>
  * 顶点对象
- * @author lmning
- *Feb 14, 2009 9:07:55 AM
+ * </pre>
+ * 
+ * @author songjz
+ * @time 2014年4月14日
  */
 public class Vertex {
-    public String label;
-    public boolean wasvisited;
-    
-    public Vertex(String label) {
-        this.label = label;
-        this.wasvisited = false;
-    }
 
-    public String getLabel() {
-        return label;
-    }
+	/**
+	 * 名称
+	 */
+	private String name;
+
+	/**
+	 * 是否已经访问过
+	 */
+	private boolean wasVisited;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isWasVisited() {
+		return wasVisited;
+	}
+
+	public void setWasVisited(boolean wasVisited) {
+		this.wasVisited = wasVisited;
+	}
+
 }
