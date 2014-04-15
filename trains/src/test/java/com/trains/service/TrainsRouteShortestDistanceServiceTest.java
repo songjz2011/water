@@ -29,7 +29,7 @@ public class TrainsRouteShortestDistanceServiceTest {
 	}
 	
 	@Test
-	public void empty_param_should_has_not_shortest_distance() {
+	public void empty_param_should_have_not_shortest_distance() {
 		Integer emptyStartStation = service.getShorestDistance("A", "");
 		assertNull(emptyStartStation);
 		Integer emptyEndStation = service.getShorestDistance("", "C");
@@ -37,20 +37,20 @@ public class TrainsRouteShortestDistanceServiceTest {
 	}
 
 	@Test
-	public void empty_trainstationlist_should_has_not_shortest_distance() {
+	public void empty_trainstationlist_should_have_not_shortest_distance() {
 		service.setTrainStationList(null);
 		Integer actualValue = service.getShorestDistance("A", "C");
 		assertNull(actualValue);
 	}
 	
 	@Test
-	public void inexistence_trainstation_should_has_not_shortest_distance() {
+	public void inexistence_trainstation_should_have_not_shortest_distance() {
 		Integer actualValue = service.getShorestDistance("INEXISTENCETRAIN", "C");
 		assertNull(actualValue);
 	}
 	
 	@Test
-	public void existence_route_should_has_shortest_distance() {
+	public void existence_route_should_have_shortest_distance() {
 		Integer actualValue = service.getShorestDistance("A", "C");
 		assertEquals(9, actualValue.intValue());
 	}

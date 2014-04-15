@@ -28,7 +28,7 @@ public class TrainsRouteDistanceService extends BasicTrainsRouteService {
 				break;
 			}
 			TrainStation station = findTrainStationByName(names[i]);
-			Integer distance = getAdjoinDistance(station, names[i + 1]);
+			Integer distance = getAdjacentStationDistance(station, names[i + 1]);
 			if (distance == null) {
 				totalDistance = null;
 				break;

@@ -25,27 +25,27 @@ public class TrainStationTest {
 	}
 	
 	@Test
-	public void empty_adjointrainlist_should_not_has_distance() {
-		station.setAdjoinStationList(null);
-		Integer actualDistance = station.getAdjoinDistance("B");
+	public void empty_adjointrainlist_should_not_have_distance() {
+		station.setAdjacentStationList(null);
+		Integer actualDistance = station.getAdjacentStationDistance("B");
 		assertNull(actualDistance);
 	}
 	
 	@Test
-	public void empty_param_adjointrainname_should_not_has_distance() {
-		Integer actualDistance = station.getAdjoinDistance("");
+	public void empty_param_adjointrainname_should_not_have_distance() {
+		Integer actualDistance = station.getAdjacentStationDistance("");
 		assertNull(actualDistance);
 	}
 	
 	@Test
-	public void inexistence_adjointrain_should_not_has_distance() {
-		Integer actualDistance = station.getAdjoinDistance("C");
+	public void inexistence_adjointrain_should_not_have_distance() {
+		Integer actualDistance = station.getAdjacentStationDistance("C");
 		assertNull(actualDistance);
 	}
 	
 	@Test
-	public void existence_adjointrain_should_has_distance() {
-		Integer actualDistance = station.getAdjoinDistance("B");
+	public void existence_adjointrain_should_have_distance() {
+		Integer actualDistance = station.getAdjacentStationDistance("B");
 		assertNotNull(actualDistance);
 	}
 	

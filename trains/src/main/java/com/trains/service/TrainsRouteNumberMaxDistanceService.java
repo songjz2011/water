@@ -3,7 +3,7 @@ package com.trains.service;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.trains.domain.AdjoinTrain;
+import com.trains.domain.AdjacentStation;
 import com.trains.domain.TrainStation;
 
 public class TrainsRouteNumberMaxDistanceService extends BasicTrainsRouteService {
@@ -15,9 +15,9 @@ public class TrainsRouteNumberMaxDistanceService extends BasicTrainsRouteService
 		}
 		Set<String> resultSet = new HashSet<String>();
 		TrainStation station = findTrainStationByName(startStation);
-		for (AdjoinTrain adjoinTrain : station.getAdjoinStationList()) {
-			String linkNames = linkAdjoinStationNames(station.getName(), adjoinTrain.getName());
-			Integer distance = getAdjoinDistance(station, adjoinTrain.getName());
+		for (AdjacentStation adjacentStation : station.getAdjacentStationList()) {
+			String linkNames = linkAdjacentStationNames(station.getName(), adjacentStation.getName());
+			Integer distance = getAdjacentStationDistance(station, adjacentStation.getName());
 			if (distance == null) {
 				continue;
 			}
@@ -38,9 +38,9 @@ public class TrainsRouteNumberMaxDistanceService extends BasicTrainsRouteService
 		if (station == null) {
 			return;
 		}
-		for (AdjoinTrain adjoinTrain : station.getAdjoinStationList()) {
-			String linkNames = linkAdjoinStationNames(stationNames, adjoinTrain.getName());
-			Integer distance = getAdjoinDistance(station, adjoinTrain.getName());
+		for (AdjacentStation adjacentStation : station.getAdjacentStationList()) {
+			String linkNames = linkAdjacentStationNames(stationNames, adjacentStation.getName());
+			Integer distance = getAdjacentStationDistance(station, adjacentStation.getName());
 			if (distance == null) {
 				continue;
 			}

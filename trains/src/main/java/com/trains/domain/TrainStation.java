@@ -4,52 +4,41 @@ import java.util.List;
 
 import com.trains.util.StringUtil;
 
-/**
- * <pre>
- * 火车站
- * </pre>
- */
 public class TrainStation {
 
-	/**
-	 * 车站名称
-	 */
-	private String name;
+    private String name;
 
-	/**
-	 * 相邻车站集合（当前车站能够到达的相邻车站）
-	 */
-	private List<AdjoinTrain> adjoinStationList;
+    private List<AdjacentStation> adjacentStationList;
 
-	public Integer getAdjoinDistance(String adjoinTrainName) {
-		Integer distance = null;
-		List<AdjoinTrain> adjoinStationList = getAdjoinStationList();
-		if (StringUtil.isEmpty(adjoinTrainName) || adjoinStationList == null) {
-			return distance;
-		}
-		for (AdjoinTrain train : adjoinStationList) {
-			if (adjoinTrainName.equals(train.getName())) {
-				distance = train.getDistance();
-				break;
-			}
-		}
-		return distance;
-	}
+    public Integer getAdjacentStationDistance(String adjacentStationName) {
+        Integer distance = null;
+        List<AdjacentStation> adjacentStationList = getAdjacentStationList();
+        if (StringUtil.isEmpty(adjacentStationName) || adjacentStationList == null) {
+            return distance;
+        }
+        for (AdjacentStation train : adjacentStationList) {
+            if (adjacentStationName.equals(train.getName())) {
+                distance = train.getDistance();
+                break;
+            }
+        }
+        return distance;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public List<AdjoinTrain> getAdjoinStationList() {
-		return adjoinStationList;
-	}
+    public List<AdjacentStation> getAdjacentStationList() {
+        return adjacentStationList;
+    }
 
-	public void setAdjoinStationList(List<AdjoinTrain> adjoinStationList) {
-		this.adjoinStationList = adjoinStationList;
-	}
+    public void setAdjacentStationList(List<AdjacentStation> adjacentStationList) {
+        this.adjacentStationList = adjacentStationList;
+    }
 
 }
