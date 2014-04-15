@@ -1,8 +1,7 @@
 package com.trains.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -16,55 +15,55 @@ public class TrainsRouteDistanceServiceTest {
 
 	private static List<TrainStation> trainStationList;
 	private TrainsRouteDistanceService service;
+	
+	private String noRoute = "NO SUCH ROUTE";
 
 	@BeforeClass
 	public static void beforeClass() {
 		TrainStationBuilder builder = new TrainStationBuilder();
-		trainStationList = new ArrayList<TrainStation>();
-
-		trainStationList.add(builder.getTrainStationA());
-		trainStationList.add(builder.getTrainStationB());
-		trainStationList.add(builder.getTrainStationC());
-		trainStationList.add(builder.getTrainStationD());
-		trainStationList.add(builder.getTrainStationE());
-		
+		trainStationList = builder.getTrainStationList();
 	}
 	
 	@Before
 	public void before() {
 		service = new TrainsRouteDistanceService();
+		service.setTrainStationList(trainStationList);
 	}
 	
 	@Test
 	public void empty_route_should_not_has_distance() {
-		service.setTrainStationList(trainStationList);
 		String actualDistance = service.getRouteDistance("");
-		assertEquals("NO SUCH ROUTE", actualDistance);
+		assertEquals(noRoute, actualDistance);
 	}
 	
 	@Test
-	public void empty_trainstation_should_not_has_distance() {
+	public void empty_trainstationlist_should_not_has_distance() {
+		service.setTrainStationList(null);
 		String actualDistance = service.getRouteDistance("A-B");
-		assertEquals("NO SUCH ROUTE", actualDistance);
+		assertEquals(noRoute, actualDistance);
+	}
+	
+	@Test
+	public void inexistence_trainstation_should_not_has_distance() {
+		service.setTrainStationList(null);
+		String actualDistance = service.getRouteDistance("INEXISTENCETRAIN-B");
+		assertEquals(noRoute, actualDistance);
 	}
 	
 	@Test
 	public void route_less_two_station_should_not_has_distance() {
-		service.setTrainStationList(trainStationList);
 		String actualDistance = service.getRouteDistance("A");
-		assertEquals("NO SUCH ROUTE", actualDistance);
+		assertEquals(noRoute, actualDistance);
 	}
 	
 	@Test
 	public void inexistence_route_should_not_has_distance() {
-		service.setTrainStationList(trainStationList);
 		String actualDistance = service.getRouteDistance("A-B-D");
-		assertEquals("NO SUCH ROUTE", actualDistance);
+		assertEquals(noRoute, actualDistance);
 	}
 	
 	@Test
-	public void inexistence_route_should_has_distance() {
-		service.setTrainStationList(trainStationList);
+	public void existence_route_should_has_distance() {
 		String actualDistance = service.getRouteDistance("A-B-C");
 		assertEquals("9", actualDistance);
 	}

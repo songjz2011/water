@@ -17,38 +17,48 @@ public class TrainStationBuilder {
 		TrainStation trainStation = buildTrainStation("A", adjoinTrainList);
 		return trainStation;
 	}
-	
+
 	public TrainStation getTrainStationB() {
 		List<AdjoinTrain> adjoinTrainList = new ArrayList<AdjoinTrain>();
 		adjoinTrainList.add(buildAdjoinTrain("C", 4));
 		TrainStation trainStation = buildTrainStation("B", adjoinTrainList);
 		return trainStation;
 	}
-	
+
 	public TrainStation getTrainStationC() {
 		List<AdjoinTrain> adjoinTrainList = new ArrayList<AdjoinTrain>();
 		adjoinTrainList.add(buildAdjoinTrain("D", 8));
 		adjoinTrainList.add(buildAdjoinTrain("E", 2));
-		
+
 		TrainStation trainStation = buildTrainStation("C", adjoinTrainList);
 		return trainStation;
 	}
-	
+
 	public TrainStation getTrainStationD() {
 		List<AdjoinTrain> adjoinTrainList = new ArrayList<AdjoinTrain>();
 		adjoinTrainList.add(buildAdjoinTrain("C", 8));
 		adjoinTrainList.add(buildAdjoinTrain("E", 6));
-		
+
 		TrainStation trainStation = buildTrainStation("D", adjoinTrainList);
 		return trainStation;
 	}
-	
+
 	public TrainStation getTrainStationE() {
 		List<AdjoinTrain> adjoinTrainList = new ArrayList<AdjoinTrain>();
 		adjoinTrainList.add(buildAdjoinTrain("B", 3));
-		
+
 		TrainStation trainStation = buildTrainStation("E", adjoinTrainList);
 		return trainStation;
+	}
+
+	public List<TrainStation> getTrainStationList() {
+		List<TrainStation> trainStationList = new ArrayList<TrainStation>();
+		trainStationList.add(getTrainStationA());
+		trainStationList.add(getTrainStationB());
+		trainStationList.add(getTrainStationC());
+		trainStationList.add(getTrainStationD());
+		trainStationList.add(getTrainStationE());
+		return trainStationList;
 	}
 
 	private TrainStation buildTrainStation(String name, List<AdjoinTrain> adjoinTrainList) {

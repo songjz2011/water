@@ -1,8 +1,8 @@
 package com.trains.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -14,18 +14,11 @@ import com.trains.domain.TrainStation;
 public class TrainsUtilTest {
 
 	private static List<TrainStation> trainStationList;
-
+	
 	@BeforeClass
 	public static void beforeClass() {
 		TrainStationBuilder builder = new TrainStationBuilder();
-		trainStationList = new ArrayList<TrainStation>();
-
-		trainStationList.add(builder.getTrainStationA());
-		trainStationList.add(builder.getTrainStationB());
-		trainStationList.add(builder.getTrainStationC());
-		trainStationList.add(builder.getTrainStationD());
-		trainStationList.add(builder.getTrainStationE());
-
+		trainStationList = builder.getTrainStationList();
 	}
 
 	@Test
@@ -48,5 +41,4 @@ public class TrainsUtilTest {
 		assertNotNull(station);
 	}
 
-	
 }
