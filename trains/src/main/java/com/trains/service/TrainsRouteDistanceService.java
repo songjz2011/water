@@ -1,6 +1,5 @@
 package com.trains.service;
 
-import com.trains.constant.TrainConstant;
 import com.trains.domain.TrainStation;
 import com.trains.util.StringUtil;
 
@@ -47,7 +46,7 @@ public class TrainsRouteDistanceService extends BasicTrainsRouteService {
 		if (StringUtil.isEmpty(route)) {
 			return false;
 		}
-		String[] names = route.split(TrainConstant.ROUTE_SEPARATOR);
+		String[] names = route.split(getNameSeparator());
 		if (names.length < 2) {
 			return false;
 		}

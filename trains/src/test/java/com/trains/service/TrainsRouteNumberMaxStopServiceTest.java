@@ -29,7 +29,7 @@ public class TrainsRouteNumberMaxStopServiceTest {
 	}
 
 	@Test
-	public void empty_param_should_has_zero_trip() {
+	public void empty_param_should_has_zero_numer() {
 		int emptyStartStation = service.getTripsNumber("", "C", 3);
 		assertEquals(0, emptyStartStation);
 		int emptyEndStation = service.getTripsNumber("C", "", 3);
@@ -39,26 +39,26 @@ public class TrainsRouteNumberMaxStopServiceTest {
 	}
 
 	@Test
-	public void empty_trainstationlist_should_has_zero_trip() {
+	public void empty_trainstationlist_should_has_zero_numer() {
 		service.setTrainStationList(null);
 		int actualValue = service.getTripsNumber("C", "C", 3);
 		assertEquals(0, actualValue);
 	}
 
 	@Test
-	public void inexistence_trainstation_should_has_zero_trip() {
+	public void inexistence_trainstation_should_has_zero_numer() {
 		int actualValue = service.getTripsNumber("INEXISTENCETRAIN", "C", 3);
 		assertEquals(0, actualValue);
 	}
 
 	@Test
-	public void inexistence_route_should_has_zero_trip() {
+	public void inexistence_route_should_has_zero_numer() {
 		int actualValue = service.getTripsNumber("A", "C", 1);
 		assertEquals(0, actualValue);
 	}
 
 	@Test
-	public void existence_route_should_has_trips() {
+	public void existence_route_should_has_more_than_zero_numer() {
 		int actualValue = service.getTripsNumber("A", "C", 2);
 		assertEquals(2, actualValue);
 	}
