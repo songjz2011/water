@@ -49,7 +49,7 @@ public class Resume implements Cloneable {
 			obj = (Resume) super.clone();
 			obj.workExprience = workExprience.clone();
 		} catch (CloneNotSupportedException e) {
-			LoggerUtil.error(getClass(), e);
+			LoggerUtil.error(getClass(), "Resume.clone", e);
 		}
 		return obj;
 	}

@@ -38,8 +38,8 @@ public class LoggerUtil {
 		getLogger(clazz).info(message);
 	}
 
-	public static void error(Class<?> clazz, Throwable t) {
-		error(clazz, parseLog(t));
+	public static void error(Class<?> clazz, String message, Throwable t) {
+		getLogger(clazz).error(message, t);
 	}
 
 	public static void error(Class<?> clazz, String message) {

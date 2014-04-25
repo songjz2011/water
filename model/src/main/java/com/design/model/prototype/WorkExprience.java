@@ -18,7 +18,7 @@ public class WorkExprience implements Cloneable{
 		try {
 			return (WorkExprience) super.clone();
 		} catch (CloneNotSupportedException e) {
-			LoggerUtil.error(getClass(), e);
+			LoggerUtil.error(getClass(), "WorkExprience.clone", e);
 		}
 		return null;
 	}

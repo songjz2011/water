@@ -27,11 +27,11 @@ public class FileStreamUtil {
 					stream.close();
 				}
 			} catch (IOException e) {
-				LoggerUtil.error(SerializeUtil.class, e.getMessage());
+				LoggerUtil.error(FileStreamUtil.class, "FileStreamUtil.closeOutputStream", e);
 			}
 		}
 	}
-
+	
 	/**
 	 * 关闭输入流
 	 * 
@@ -44,7 +44,7 @@ public class FileStreamUtil {
 					stream.close();
 				}
 			} catch (IOException e) {
-				LoggerUtil.error(SerializeUtil.class, e.getMessage());
+				LoggerUtil.error(FileStreamUtil.class, "FileStreamUtil.closeInputStream", e);
 			}
 		}
 	}
@@ -61,6 +61,7 @@ public class FileStreamUtil {
 					reader.close();
 				}
 			} catch (IOException e) {
+				LoggerUtil.error(FileStreamUtil.class, "FileStreamUtil.closeReader", e);
 			}
 		}
 	}
@@ -77,6 +78,7 @@ public class FileStreamUtil {
 					writer.close();
 				}
 			} catch (IOException e) {
+				LoggerUtil.error(FileStreamUtil.class, "FileStreamUtil.closeWriter", e);
 			}
 		}
 	}
