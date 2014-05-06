@@ -133,6 +133,7 @@
 	<!-- 定义 生产环境 -->
 	<beans profile="production">
 		<context:property-override ignore-unresolvable="true" location="classpath:application-db.properties" />
+		
 	</beans>
 
 	<!-- 定义 开发环境 -->
