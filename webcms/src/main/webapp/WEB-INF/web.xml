@@ -21,6 +21,13 @@
 			classpath*:/spring-context*.xml
 		</param-value>
 	</context-param>
+	
+	<!-- 设定Spring Context的默认Profile -->
+	<context-param>
+		<param-name>spring.profiles.default</param-name>
+		<param-value>production</param-value>
+	</context-param>
+	
 	<!-- Spring的ApplicationContext 载入 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
