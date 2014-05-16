@@ -99,7 +99,14 @@
 			<version>0.9.1.2</version>
 		</dependency>
 		<!-- 数据库链接池 结束 -->
+
 		
+		<!-- JTA -->
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
 
 
 	</dependencies>
