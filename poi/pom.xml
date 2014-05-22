@@ -2,52 +2,37 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>com.webthings</groupId>
 	<artifactId>poi</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<parent>
-		<groupId>com.web.things</groupId>
-		<artifactId>parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-
-	<name>poi</name>
+	<name>poimy</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<poi.version>3.9</poi.version>
-		
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>${poi.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>3.10-FINAL</version>
 		</dependency>
 
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>com.webthing</groupId>
 			<artifactId>util</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 </project>
