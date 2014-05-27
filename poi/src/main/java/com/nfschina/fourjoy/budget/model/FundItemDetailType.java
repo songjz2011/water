@@ -8,7 +8,7 @@ package com.nfschina.fourjoy.budget.model;
  */
 public enum FundItemDetailType {
 
-    EQUIPMENT("设备", 0);
+    EQUIPMENT("设备", 0), BOOKS("文献", 1);
 
     private String name;
 
@@ -23,6 +23,15 @@ public enum FundItemDetailType {
         for (FundItemDetailType type : FundItemDetailType.values()) {
             if (type.getIndex() == index) {
                 return type.name;
+            }
+        }
+        return null;
+    }
+
+    public static FundItemDetailType getType(int index) {
+        for (FundItemDetailType type : FundItemDetailType.values()) {
+            if (type.getIndex() == index) {
+                return type;
             }
         }
         return null;

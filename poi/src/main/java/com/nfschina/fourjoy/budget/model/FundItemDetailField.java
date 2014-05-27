@@ -1,5 +1,6 @@
 package com.nfschina.fourjoy.budget.model;
 
+import java.io.Serializable;
 
 /**
  * 经费类别的明细--字段
@@ -7,7 +8,9 @@ package com.nfschina.fourjoy.budget.model;
  * @author songjz
  * @version 1.0, 2014年4月26日
  */
-public class FundItemDetailField {
+public class FundItemDetailField implements Serializable {
+
+    private static final long serialVersionUID = 7121798464473314613L;
 
     /**
      * 字段显示的名称
@@ -32,7 +35,7 @@ public class FundItemDetailField {
     /**
      * 排序位置
      */
-    private int position;
+    private Integer position;
 
     public String getLabel() {
         return label;
@@ -66,11 +69,11 @@ public class FundItemDetailField {
         this.detailType = detailType;
     }
 
-    public int getPosition() {
+    public Integer getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
+    public void setPosition(Integer position) {
         this.position = position;
     }
 

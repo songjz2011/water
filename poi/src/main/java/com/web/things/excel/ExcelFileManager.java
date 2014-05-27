@@ -29,7 +29,7 @@ public class ExcelFileManager {
 			inputStream = new FileInputStream(filePath);
 			POIFSFileSystem fs = new POIFSFileSystem(inputStream);
 			HSSFWorkbook wb = new HSSFWorkbook(fs);
-			buildDetailList(EquimpmentExcel, wb);
+			buildDetailList(null, wb);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
