@@ -45,6 +45,9 @@ public class LoggerUtil {
 	public static void error(Class<?> clazz, String message) {
 		getLogger(clazz).error(message);
 	}
+	public static void error(Class<?> clazz, Throwable t) {
+		getLogger(clazz).error(t.getMessage(), t);
+	}
 
 	private static Logger getLogger(Class<?> clazz) {
 		return LoggerFactory.getLogger(clazz);
