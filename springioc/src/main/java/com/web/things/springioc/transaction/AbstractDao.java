@@ -17,7 +17,7 @@ public class AbstractDao<T extends Domain> {
 
 	public static void main(String[] args) {
 		UserDaoWithAbstract userDao = new UserDaoWithAbstract();
-		User user = userDao.getInstance();
+		UserDomain user = userDao.getInstance();
 		System.out.println(user);
 	}
 
