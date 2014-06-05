@@ -11,6 +11,6 @@ public interface UserDAO {
 
 	User findById(Long id);
 	
-	void save(User user);
+	int save(User user);
 	
 }

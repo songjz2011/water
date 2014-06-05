@@ -1,5 +1,8 @@
 package com.web.things.springioc.dao.imp;
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 /**
@@ -11,8 +14,10 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
  * @time 2014年6月4日
  */
 public class DAOImp<T> extends JdbcDaoSupport {
-	
-	public T query(String sql) {
-		return null;
+
+	@Resource(name = "dataSource3")
+	public void setDatasource(DataSource dataSource) {
+		setDataSource(dataSource);
 	}
+
 }
