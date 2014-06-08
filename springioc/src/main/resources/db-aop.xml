@@ -26,8 +26,8 @@
 	</aop:config>
 	
 	<aop:config>
-		<aop:pointcut expression="execution(* com.web.things.springioc.dao.UserDAO.*(..))" id="userDAO"/>
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="userDAO"/>
+		<aop:pointcut expression="execution(* com.web.things.springioc.dao.UserDAO.*(..))" id="userDAOAOP"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="userDAOAOP"/>
 	</aop:config>
 	
 	

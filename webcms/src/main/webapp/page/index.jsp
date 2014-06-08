@@ -8,5 +8,7 @@
 </head>
 <body>
 	<a href="${_ctx}/spring-demo/helloworld" target="_blank">spring demo hello</a>
+	<br><br>
+	<a href="${_ctx}/user/list" target="_blank">用户列表</a>
 </body>
 </html>

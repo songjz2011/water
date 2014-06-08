@@ -18,6 +18,11 @@
 		<!-- <hibernate.version>4.3.4.Final</hibernate.version> -->
 		<fastjson.version>1.1.39</fastjson.version>
 
+		<cglib.versin>3.1</cglib.versin>
+		<!-- <cglib.versin>3.1</cglib.versin> -->
+
+		<mysql.version>5.1.30</mysql.version>
+
 		<!-- web -->
 		<jstl.version>1.2</jstl.version>
 		<jsp.api.version>2.0</jsp.api.version>
@@ -29,6 +34,12 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>${cglib.versin}</version>
+		</dependency>
+
 		<!-- spring config start -->
 
 		<!-- spring mvc -->
@@ -51,27 +62,50 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!-- spring config end -->
 
 		<!-- hibernate config start -->
-		<!-- 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-ehcache</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId> 
+			<version>${hibernate.version}</version> </dependency> <dependency> <groupId>org.hibernate</groupId> 
+			<artifactId>hibernate-entitymanager</artifactId> <version>${hibernate.version}</version> 
+			</dependency> <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-ehcache</artifactId> 
+			<version>${hibernate.version}</version> </dependency> -->
 		<!-- hibernate config end -->
+
+		<!-- 数据库链接池 -->
+		<!-- DBCP 2.0 binaries should be used by applications running under Java 
+			7. DBCP 1.4 binaries should be used by applications running under Java 6. -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+		<!-- 数据库链接池 结束 -->
+		<!-- JTA -->
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
 
 		<!-- jstl -->
 		<dependency>

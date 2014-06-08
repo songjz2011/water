@@ -17,7 +17,7 @@ public class DAOImp<T> extends JdbcDaoSupport {
 
 	@Resource(name = "dataSource3")
 	public void setDatasource(DataSource dataSource) {
-		setDataSource(dataSource);
+		super.setDataSource(dataSource);
 	}
 
 }

@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Service;
 
 import com.web.things.springioc.dao.UserDAO;
@@ -25,17 +24,19 @@ public class UserDAOImp extends DAOImp<User> implements UserDAO {
 	public User findById(Long id) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM USER WHERE ID=").append(id);
-		User user = getJdbcTemplate().query(sql.toString(), new ResultSetExtractor<User>() {
-			public User extractData(ResultSet rs) throws SQLException, DataAccessException {
-				User user = null;
-				if (rs.next()) {
-					user = new User();
-					user.setId(rs.getLong("ID"));
-					user.setName(rs.getString("NAME"));
-				}
-				return user;
-			}
-		});
+		User user = getJdbcTemplate().query(sql.toString(),
+				new ResultSetExtractor<User>() {
+					public User extractData(ResultSet rs) throws SQLException,
+							DataAccessException {
+						User user = null;
+						if (rs.next()) {
+							user = new User();
+							user.setId(rs.getLong("ID"));
+							user.setName(rs.getString("NAME"));
+						}
+						return user;
+					}
+				});
 		return user;
 	}
 
