@@ -1,13 +1,5 @@
 package com.design.model;
 
-/**
- * <pre>
- * 农历计算
- * </pre>
- * 
- * @author songjz
- * @time 2014年6月17日
- */
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
