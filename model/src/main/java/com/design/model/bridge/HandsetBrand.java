@@ -8,6 +8,18 @@ package com.design.model.bridge;
  * @author songjz
  * @time 2014年6月27日
  */
-public class HandsetBrand {
+public abstract class HandsetBrand {
+
+	protected HandsetSoft soft;
+
+	public HandsetBrand() {
+
+	}
+
+	public void setHandsetSoft(HandsetSoft soft) {
+		this.soft = soft;
+	}
+
+	public abstract void run();
 
 }
