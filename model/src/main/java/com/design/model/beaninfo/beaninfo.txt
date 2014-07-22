@@ -1,0 +1,2 @@
+测试
+Introspector、BeanInfo等类获取对象的属性、方法 代替 反射 
