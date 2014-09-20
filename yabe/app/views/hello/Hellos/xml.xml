@@ -1,0 +1,6 @@
+<persons>
+	<person>
+		<name>我是谁</name>
+		<adderss>${address}</adderss>
+	</person>
+</persons>

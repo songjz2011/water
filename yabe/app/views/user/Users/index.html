@@ -1,0 +1,30 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+#{if user}
+	<h2 class="post-title">
+    	<a href="users/show/${user.id}">${user.name}</a>
+    	<a>${user.name}</a>
+	</h2>
+#{/if}
+#{else}
+	<div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}
+<br>
+<br>
+
+<div class="empty">
+	${blogBaseline}
+</div>
+
+*{**** Display the user name ****}*
+<!-- message中得信息 获取 -->
+<h1>&{'clientName', '张三'}</h1>
+
+
+<script type="text/javascript">
+$(document).read(function() {
+	alert(1111);
+});
+</script>

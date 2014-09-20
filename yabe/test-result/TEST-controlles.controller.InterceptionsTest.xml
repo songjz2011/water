@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.21" errors="0" skipped="0" tests="2" name="controlles.controller.InterceptionsTest">
+  <testcase classname="controlles.controller.InterceptionsTest" name="test_catchExceptionAction" time="0.171">
+      </testcase>
+  <testcase classname="controlles.controller.InterceptionsTest" name="test_index" time="0.039">
+      </testcase>
+</testsuite>

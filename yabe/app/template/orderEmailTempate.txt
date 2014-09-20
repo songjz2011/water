@@ -1,0 +1,6 @@
+Hello ${name},
+
+Your new password is ${newpassword}.
+
+what's your name?
+My name is ${user.name}, My password is ${user.password}

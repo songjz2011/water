@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.03" errors="0" skipped="0" tests="4" name="controlles.returntype.ReturnTypesTest">
+  <testcase classname="controlles.returntype.ReturnTypesTest" name="return_json" time="0.012">
+      </testcase>
+  <testcase classname="controlles.returntype.ReturnTypesTest" name="return_text" time="0.005">
+      </testcase>
+  <testcase classname="controlles.returntype.ReturnTypesTest" name="return_template" time="0.009">
+      </testcase>
+  <testcase classname="controlles.returntype.ReturnTypesTest" name="return_xml" time="0.004">
+      </testcase>
+</testsuite>

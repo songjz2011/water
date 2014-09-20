@@ -2,3 +2,6 @@
 
 require:
     - play
+    - play -> crud
+    - com.alibaba -> fastjson 1.1.40:
+        transitive: false
