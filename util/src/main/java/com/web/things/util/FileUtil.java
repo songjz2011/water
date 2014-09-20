@@ -1,5 +1,8 @@
 package com.web.things.util;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -14,7 +17,7 @@ import java.io.Writer;
  * @author songjz
  * @time 2013年11月15日
  */
-public class FileStreamUtil {
+public class FileUtil {
 	/**
 	 * 关闭输出流
 	 * 
@@ -27,11 +30,12 @@ public class FileStreamUtil {
 					stream.close();
 				}
 			} catch (IOException e) {
-				LoggerUtil.error(FileStreamUtil.class, "FileStreamUtil.closeOutputStream", e);
+				LoggerUtil.error(FileUtil.class,
+						"FileStreamUtil.closeOutputStream", e);
 			}
 		}
 	}
-	
+
 	/**
 	 * 关闭输入流
 	 * 
@@ -44,7 +48,8 @@ public class FileStreamUtil {
 					stream.close();
 				}
 			} catch (IOException e) {
-				LoggerUtil.error(FileStreamUtil.class, "FileStreamUtil.closeInputStream", e);
+				LoggerUtil.error(FileUtil.class,
+						"FileStreamUtil.closeInputStream", e);
 			}
 		}
 	}
@@ -61,7 +66,8 @@ public class FileStreamUtil {
 					reader.close();
 				}
 			} catch (IOException e) {
-				LoggerUtil.error(FileStreamUtil.class, "FileStreamUtil.closeReader", e);
+				LoggerUtil.error(FileUtil.class,
+						"FileStreamUtil.closeReader", e);
 			}
 		}
 	}
@@ -78,9 +84,33 @@ public class FileStreamUtil {
 					writer.close();
 				}
 			} catch (IOException e) {
-				LoggerUtil.error(FileStreamUtil.class, "FileStreamUtil.closeWriter", e);
+				LoggerUtil.error(FileUtil.class,
+						"FileStreamUtil.closeWriter", e);
 			}
 		}
 	}
 
+	/**
+	 * 读取文件内容
+	 * 
+	 * @param file
+	 * @return
+	 */
+	public static String readContent(File file) {
+		StringBuilder content = new StringBuilder();
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				content.append(line);
+			}
+		} catch (Exception e) {
+			LoggerUtil.error(FileUtil.class,
+					"FileStreamUtil.readContent", e);
+		} finally {
+			closeReader(reader);
+		}
+		return content.toString();
+	}
 }

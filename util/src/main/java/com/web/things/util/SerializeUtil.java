@@ -35,7 +35,7 @@ public class SerializeUtil {
 		} catch (Exception e) {
 			LoggerUtil.error(SerializeUtil.class, e.getMessage());
 		} finally {
-			FileStreamUtil.closeOutputStream(objectStream, byteStream);
+			FileUtil.closeOutputStream(objectStream, byteStream);
 		}
 		return result;
 	}
@@ -57,7 +57,7 @@ public class SerializeUtil {
 		} catch (Exception e) {
 			LoggerUtil.error(SerializeUtil.class, e.getMessage());
 		} finally {
-			FileStreamUtil.closeInputStream(objectStream, byteStream);
+			FileUtil.closeInputStream(objectStream, byteStream);
 		}
 		return result;
 	}
