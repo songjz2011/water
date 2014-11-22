@@ -1,4 +1,4 @@
-package com.rxtx.bangdaibao.util;
+package com.web.things.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
