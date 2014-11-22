@@ -17,8 +17,21 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
+	<repositories>
+  <repository>
+    <id>public</id>
+    <url>http://maven.oschina.net/content/repositories/thirdparty</url>
+  </repository>
+</repositories>
+
 
 	<dependencies>
+<dependency>
+  <groupId>net.arksea</groupId>
+  <artifactId>jleaks</artifactId>
+  <version>1.0.0</version>
+</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
