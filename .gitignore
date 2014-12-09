@@ -1,3 +1,15 @@
+./**/target
+./**/.project
+./**/.settings
+./**/.classpath
+./**/logs
+
+*/target
+*/.project
+*/.settings
+*/.classpath
+*/logs
+
 db/target
 db/.project
 db/.settings
